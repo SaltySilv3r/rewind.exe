@@ -1,9 +1,52 @@
-h1{
-    color: rgb(255, 208, 0);
-    background-color: #f2f2f2;
+@font-face {
+    font-family:'Tahoma';
+    src: url(/Users/luna/rewind.exe/fonts/tahoma.ttf);
 }
 
-button{
-    width:200px
-    height 50px
-}
+body {
+    background-image: url('https://images2.alphacoders.com/941/941898.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: top center; 
+  }
+  .container {
+    width: 100%; 
+    max-width: 300px; 
+    z-index: 0;
+    text-align: center; 
+    align-items: left;
+ 
+  }
+  
+  .button { 
+    background-color: #ffffff00;
+    align-items: left;
+    align-self: left;
+    border: none; 
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    size: 50px 50px;
+  }
+  .text {
+    font-family: 'Tahoma', sans-serif;
+    text-shadow: 2px 2px 4px #000000;
+    z-index: 1;
+    color: white; 
+    font-size: 15px; 
+    font-weight: normal; 
+    text-align: center; 
+    margin-top: -5px;
+  }
+
+  .icontxt{
+    width: 24%;
+
+  }
+  .experiment {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+
+  }
