@@ -52,8 +52,6 @@ body {
     cursor: pointer;
     outline: none;
 }
-.popup {
-}
   #start-button {
       background: linear-gradient(to bottom, #55A155, #389C38);
       color: white;
