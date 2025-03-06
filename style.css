@@ -4,49 +4,40 @@
 }
 
 body {
+  min-height: 800px;
     background-image: url('https://images2.alphacoders.com/941/941898.jpg');
     background-size: cover; 
     background-repeat: no-repeat; 
-    background-position: top center; 
-  }
-  .container {
-    width: 100%; 
-    max-width: 300px; 
-    z-index: 0;
-    text-align: center; 
-    align-items: left;
- 
-  }
+    }
   
   .button { 
     background-color: #ffffff00;
-    align-items: left;
-    align-self: left;
     border: none; 
     cursor: pointer;
-    padding: 10px 20px;
     font-size: 16px;
-    size: 50px 50px;
+    width: 150px
   }
+  .button img {
+    width: 80px;
+  }
+
   .text {
     font-family: 'Tahoma', sans-serif;
     text-shadow: 2px 2px 4px #000000;
-    z-index: 1;
     color: white; 
-    font-size: 15px; 
-    font-weight: normal; 
-    text-align: center; 
-    margin-top: -5px;
+    font-size: 15px;
+    margin-top: 0px;
   }
 
-  .icontxt{
-    width: 24%;
+.menu-items{
+display: flex;
+gap: 30px;
+flex-direction: column;
+justify-content: flex-start;
 
-  }
-  .experiment {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    justify-content: center;
+}
 
-  }
+.menu-item{
+  display: flex;
+  align-items: center;
+}
