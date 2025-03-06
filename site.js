@@ -1,5 +1,11 @@
-// look for the button element
+function updateClock() {
+    const now = new Date();
+    const timeDisplay = document.getElementById('time');
+    timeDisplay.textContent = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit',
+        hour12: false
+    });
+}
+setInterval(updateClock, 1000);
+updateClock();
 
-// event gong to happen, on click
-
-// if you click it, maybe do something?
+object.onclick = function(){readme};

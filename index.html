@@ -4,41 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rewind.exe</title>
     <link rel="stylesheet" href="style.css">
 
     <script defer src="site.js"></script>
 </head>
 <body> 
-    <div class="menu-items">
+    <div id="desktop">
+        
+        <div class="desktop-icon" id="bin-icon">
+            <img src="images/bin.webp" alt="bin">
+            <span>Recycle bin</span>
+        </div>
+        
+        <div class="desktop-icon" id="computer">
+            <img src="images/Mycomputer.webp" alt="My computer">
+            <span>My computer</span>
+        </div>
 
-        <div class="menu-item">
-            <button class="button" onclick="alert ('this is a window')"> 
-                <img src="./images/Mycomputer.webp" alt="MyComputer" class="icon"> 
-                <p class="text">My computer</p>
-            </button> 
-            
+        <div class="desktop-icon" id="Browser">
+            <img src="images/explorer.webp" alt="Explorer">
+            <span>Browser</span>
         </div>
-        <div class="menu-item">
-            <button class="button" onclick="alert ('this is a window')"> 
-                <img src="images/explorer.webp" alt="explorer" class="icon">
-                <p class="text">Explorer</p>
-            </button>
-            
+        
+        <div class="desktop-icon" id="notepad-icon">
+            <img src="images/notepad.webp" alt="Notepad">
+            <span>Notepad</span>
         </div>
-        <div class="menu-item">
-            <button class="button" onclick="alert ('this is a window')"> 
-                <img src="./images/notepad.webp" alt="notepad" class="icon">
-                <p class="text">Notepad</p>
-            </button>
-            
+
+        <div class="desktop-icon" id="txt-icon" onclick="readme">
+            <img src="images/txt.webp" alt="txt">
+            <span>readme.txt</span> 
         </div>
-        <div class="menu-item">
-            <button class="button" onclick="alert ('this is a window')"> 
-                <img src="./images/txt.webp" alt=".txt file" class="icon">
-                <p class="text">readme.txt</p>
-            </button>
+    </div>
+    
+    <div id="taskbar">
+        <div id="start-button">
+            <img src="images/start.webp" alt="Start">
+            Start
         </div>
+        <div id="time">12:00 PM</div>
     </div>
 </body>
 </html>

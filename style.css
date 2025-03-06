@@ -4,40 +4,76 @@
 }
 
 body {
-  min-height: 800px;
-    background-image: url('https://images2.alphacoders.com/941/941898.jpg');
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    }
+  background-image: url('images/bg.png');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  font-family: 'Tahoma', sans-serif;
+  overflow: hidden;
+}
   
-  .button { 
-    background-color: #ffffff00;
-    border: none; 
+  .desktop-icon {
+      width: 80px;
+      height: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 15px;
+      cursor: pointer;
+  }
+  
+  .desktop-icon img {
+      width: 48px;
+      height: 48px;
+  }
+  
+  .desktop-icon span {
+      color: white;
+      text-align: center;
+      text-shadow: 1px 1px 1px #000;
+      margin-top: 5px;
+      font-size: 12px;
+  }
+  
+  #taskbar {
+      height: 40px;
+      background: linear-gradient(to bottom, #2A6ED6, #3C91FA, #2A6ED6);
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
     cursor: pointer;
-    font-size: 16px;
-    width: 150px
-  }
-  .button img {
-    width: 80px;
-  }
-
-  .text {
-    font-family: 'Tahoma', sans-serif;
-    text-shadow: 2px 2px 4px #000000;
-    color: white; 
-    font-size: 15px;
-    margin-top: 0px;
-  }
-
-.menu-items{
-display: flex;
-gap: 30px;
-flex-direction: column;
-justify-content: flex-start;
-
+    outline: none;
 }
-
-.menu-item{
-  display: flex;
-  align-items: center;
+.popup {
 }
+  #start-button {
+      background: linear-gradient(to bottom, #55A155, #389C38);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      cursor: pointer;
+      height: 90%;
+      width: 70px;
+  }
+  
+  #start-button img {
+      height: 20px;
+      margin-right: 5px;
+  }
+  
+  #time {
+    width: 40px;
+      color: white;
+      font-size: 12px;
+  }
