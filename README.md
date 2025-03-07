@@ -1,10 +1,10 @@
-# Project Rewind  
+# Rewind.exe  
 
 An interactive puzzle experience set within a simulated retro computer interface, blending digital literacy with nostalgic VHS-era aesthetics.  
 
 ## Description  
 
-Project Rewind is a puzzle game designed as part of an escape room experience. Players navigate a simulated Windows 98/XP/Vista-style desktop to explore VHS-themed websites and uncover hidden password fragments. Using a browser, a notepad, and interactive web elements, players must solve puzzles by piecing together URL fragments to progress through the game. The final challenge requires assembling a password from the visited URLs to unlock the next stage of the escape room.  
+Rewind.exe is a puzzle game designed as part of an escape room experience. Players navigate a simulated Windows 98/XP/Vista-style desktop to explore VHS-themed websites and uncover hidden password fragments. Using a browser, a notepad, and interactive web elements, players must solve puzzles by piecing together URL fragments to progress through the game. The final challenge requires assembling a password from the visited URLs to unlock the next stage of the escape room.  
 
 ## Authors  
 

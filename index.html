@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rewind.exe</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="favicon" href="/images/Windows XP.ico">
 
     <script defer src="site.js"></script>
 </head>
@@ -22,7 +23,7 @@
             <span>My computer</span>
         </div>
 
-        <div class="desktop-icon" id="Browser">
+        <div class="desktop-icon" id="browser">
             <img src="images/explorer.webp" alt="Explorer">
             <span>Browser</span>
         </div>
@@ -32,9 +33,17 @@
             <span>Notepad</span>
         </div>
 
-        <div class="desktop-icon" id="txt-icon" onclick="readme">
+        <div class="desktop-icon" id="txt-icon">
             <img src="images/txt.webp" alt="txt">
             <span>readme.txt</span> 
+        </div>
+
+        <div id="txtwindow"> 
+            <div id="txtwindowheader">readme.txt <img id="close-btn"
+                src="images/exit.png" alt="close"></div>
+            <div class="txt-pop-up">
+                <textarea>Find the URL on this website to unlock the next one: https://www.temporary-url.com/F452</textarea>
+            </div>
         </div>
     </div>
     
@@ -43,7 +52,7 @@
             <img src="images/start.webp" alt="Start">
             Start
         </div>
-        <div id="time">12:00 PM</div>
+        <div id="time">12:00</div>
     </div>
 </body>
 </html>

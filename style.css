@@ -1,6 +1,6 @@
 @font-face {
     font-family:'Tahoma';
-    src: url(/Users/luna/rewind.exe/fonts/tahoma.ttf);
+    src: url('fonts/Tahoma.ttf');
 }
 
 body {
@@ -77,3 +77,129 @@ body {
       color: white;
       font-size: 12px;
   }
+
+  #txtwindow {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+    display: none;
+    left: calc(50% - 250px);
+    top: calc(50% - 200px);
+  }
+  
+  #txtwindowheader {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+}
+
+#close-btn {
+    width: 28px;
+    height: auto;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+}
+  
+  .txt-pop-up {
+    position: relative;
+    width: 500px;
+    height: 400px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  }
+  
+  .txt-pop-up textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+  }
+  
+  #txtwindow.--show {
+    display: block;
+  }
+
+  #browserwindow {
+    width: 800px;
+    height: 600px;
+    background-color: #f0f0f0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+}
+
+#browserwindowheader {
+    padding: 10px;
+    background-color: #2196F3;
+    color: white;
+    cursor: move;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#browser-close-btn {
+    width: 28px;
+    height: auto;
+    cursor: pointer;
+}
+
+.browser-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: white;
+}
+
+.browser-toolbar {
+    display: flex;
+    padding: 5px;
+    background-color: #e1e1e1;
+    border-bottom: 1px solid #999;
+}
+
+.browser-button {
+    margin-right: 5px;
+    background-color: #d9d9d9;
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 2px 5px;
+}
+
+.address-bar {
+    flex-grow: 1;
+    margin: 0 5px;
+    border: 1px solid #999;
+    padding: 2px 5px;
+}
+
+.browser-page {
+    flex-grow: 1;
+    padding: 10px;
+    overflow: auto;
+}
+
+.browser-loading {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.secret-url {
+    font-weight: bold;
+    color: #0000ff;
+}
