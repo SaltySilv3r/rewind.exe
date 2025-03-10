@@ -44,7 +44,6 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -74,9 +73,10 @@ button {
 }
 
 #time {
-  width: 40px;
     color: white;
     font-size: 12px;
+    margin-left: auto;
+    padding-right: 10px;
 }
 
 #txtwindow {
@@ -97,18 +97,27 @@ button {
   background-color: #2196F3;
   color: #fff;
   position: relative;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#close-btn, #txt-minimize-btn {
+  width: 24px;
+  height: 24px;
   cursor: pointer;
 }
 
-#close-btn {
-  width: 28px;
-  height: auto;
-  position: absolute;
-  right: 10px;
+.window-controls {
+  display: flex;
+  align-items: center;
+}
+
+.window-controls img {
+  width: 24px;
+  height: 24px;
+  margin-left: 5px;
   cursor: pointer;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .txt-pop-up {
@@ -159,18 +168,6 @@ button {
   justify-content: space-between;
   align-items: center;
   height: 25px;
-}
-
-.window-controls {
-  display: flex;
-  align-items: center;
-}
-
-.window-controls img {
-  width: 24px;
-  height: 24px;
-  margin-left: 5px;
-  cursor: pointer;
 }
 
 #browser-close-btn, #minimize-btn, #maximize-btn {
@@ -246,12 +243,15 @@ button {
   padding: 2px 5px;
 }
 
-.next-challenge-page {
+.next-challenge-page, .nextest-challenge-page, .final-challenge-page {
   text-align: center;
   margin-top: 100px;
   padding: 20px;
-  background-color: #f0f8ff;
-  border: 1px dashed #0078d7;
+}
+
+.final-challenge-page {
+  background-color: #FFFFC2;
+  border: 2px solid #FFD700;
 }
 
 .taskbar-button {
@@ -260,7 +260,7 @@ button {
   background-color: #3a70c1;
   height: 80%;
   padding: 0 10px;
-  margin-right: 1550px;
+  margin-left: 5px;
   border-radius: 2px;
   color: white;
   cursor: pointer;
