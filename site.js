@@ -43,7 +43,7 @@ browserWindow.innerHTML = `
       <button class="browser-button">Forward</button>
       <button class="browser-button">Refresh</button>
       <button class="browser-button">Home</button>
-      <input type="text" class="address-bar" value="https://www.temporary-url.com/F452">
+      <input type="text" class="address-bar" value="https://www.temporary-url.com/1234">
       <button class="browser-button go-button">Go</button>
     </div>
     <div class="browser-page">
@@ -59,16 +59,21 @@ browserWindow.innerHTML = `
       <div class="website-content temp-url-content">
         <div class="browser-loading">
           <h2>Loading page...</h2>
-          <p>The hidden URL is: <span class="secret-url">https://www.next-challenge.com/X721</span></p>
+          <p>The hidden URL is: <span class="secret-url">https://www.next-challenge.com/5678</span></p>
         </div>
       </div>
       
       <!-- Second website: next-challenge.com -->
       <div class="website-content next-challenge-content">
         <div class="next-challenge-page">
-          <h2>Congratulations!</h2>
-          <p>You've found the secret page.</p>
-          <p>Your next clue is: <span class="secret-code">XP-REWIND-7734</span></p>
+          <h2>Loading page...</h2>
+          <p>The hidden URL is: <span class="secret-url">https://www.nextest-challenge.com/91011</span></p>
+        </div>
+      </div>
+
+      <!-- Third website: nextest-challenge.com -->
+      <div class="website-content next-challenge-content">
+        <div class="nextest-challenge-page">
         </div>
       </div>
       
@@ -159,7 +164,7 @@ function navigateToUrl() {
     document.querySelector(".temp-url-content").classList.add("active");
   } else if (url === "https://www.next-challenge.com/5678") {
     document.querySelector(".next-challenge-content").classList.add("active");
-  } else if (url === "https://www.nextest-challenge.com/5678") {
+  } else if (url === "https://www.nextest-challenge.com/91011") {
     document.querySelector(".nextest-challenge-content").classList.add("active");
   } else {
     document.querySelector(".not-found-content").classList.add("active");
