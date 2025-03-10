@@ -142,12 +142,14 @@ browserWindow.innerHTML = `
         </div>
       </div>
       
-      <!-- 404 page for unknown URLs -->
-      <div class="website-content not-found-content">
-        <div class="browser-error">
-          <h2>404 - Page Not Found</h2>
-          <p>The requested URL was not found on this server.</p>
-        </div>
+     <div class="website-content not-found-content">
+  <div <div id="dino-game-wrapper"></div>class="browser-error">
+    <h2>404 - Page Not Found</h2>
+    <p>The requested URL was not found on this server.</p>
+    <!-- The game will be inserted here by JavaScript -->
+    <div id="dino-game-wrapper"></div>
+  </div>
+</div>
       </div>
     </div>
   </div>
@@ -296,4 +298,6 @@ function dragElement(elmnt) {
     document.onmouseup = null;
     document.onmousemove = null;
   }
+
+
 }
