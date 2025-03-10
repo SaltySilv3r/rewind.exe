@@ -2,14 +2,15 @@ function updateClock() {
   const now = new Date();
   const timeDisplay = document.getElementById('time');
   timeDisplay.textContent = now.toLocaleTimeString([], {
-      hour: '2-digit', 
-      minute:'2-digit',
-      hour12: false
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
   });
 }
 setInterval(updateClock, 1000);
 updateClock();
 
+// Window management
 let zIndexCounter = 100;
 function bringWindowToFront(windowElement) {
   windowElement.style.zIndex = zIndexCounter++;
@@ -17,19 +18,64 @@ function bringWindowToFront(windowElement) {
   const allTaskbarButtons = document.querySelectorAll('.taskbar-button');
   allTaskbarButtons.forEach(btn => btn.classList.remove('active'));
   
-  if (windowElement.id === "txtwindow") {
+  const windowId = windowElement.id;
+  if (windowId === "txtwindow") {
     document.getElementById("txt-taskbar-btn")?.classList.add('active');
-  } else if (windowElement.id === "browserwindow") {
+  } else if (windowId === "browserwindow") {
     document.getElementById("browser-taskbar-btn")?.classList.add('active');
   }
 }
 
+// Drag functionality
+function dragElement(elmnt) {
+  let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  const header = document.getElementById(elmnt.id + "header");
+  
+  if (header) {
+    header.onmousedown = dragMouseDown;
+  } else {
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    if (elmnt.id === "browserwindow" && elmnt.classList.contains("maximized")) {
+      return;
+    }
+    
+    bringWindowToFront(elmnt);
+    
+    e = e || window.addEventListener;
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.addEventListener;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+// Text window functionality
 const textIconButton = document.querySelector("#txt-icon");
 const txtCloseButton = document.querySelector("#close-btn");
 const txtMinimizeButton = document.querySelector("#txt-minimize-btn");
+const txtWindow = document.querySelector("#txtwindow");
 
-textIconButton.addEventListener("click", (event) => {
-  const txtWindow = document.querySelector("#txtwindow");
+textIconButton.addEventListener("click", () => {
   txtWindow.classList.add("--show");
   dragElement(txtWindow);
   bringWindowToFront(txtWindow);
@@ -38,13 +84,13 @@ textIconButton.addEventListener("click", (event) => {
 
 txtCloseButton.addEventListener("click", (event) => {
   event.stopPropagation();
-  document.querySelector("#txtwindow").classList.remove("--show");
+  txtWindow.classList.remove("--show");
   removeTxtFromTaskbar();
 });
 
 txtMinimizeButton.addEventListener("click", (event) => {
   event.stopPropagation();
-  document.querySelector("#txtwindow").classList.remove("--show");
+  txtWindow.classList.remove("--show");
 });
 
 function addTxtToTaskbar() {
@@ -56,7 +102,6 @@ function addTxtToTaskbar() {
     txtBtn.innerHTML = '<img src="images/notepad.webp" alt="Notepad"><span>readme.txt</span>';
     
     txtBtn.addEventListener("click", function() {
-      const txtWindow = document.getElementById("txtwindow");
       if (!txtWindow.classList.contains("--show")) {
         txtWindow.classList.add("--show");
         bringWindowToFront(txtWindow);
@@ -78,89 +123,11 @@ function removeTxtFromTaskbar() {
   }
 }
 
+// Browser window functionality
 const browserIcon = document.getElementById("browser");
-const desktop = document.getElementById("desktop");
+const browserWindow = document.getElementById("browserwindow");
 
-let browserWindow = document.createElement("div");
-browserWindow.id = "browserwindow";
-browserWindow.innerHTML = `
-  <div id="browserwindowheader">
-    Internet Explorer 
-    <div class="window-controls">
-      <img id="minimize-btn" src="images/minimize.png" alt="Minimize">
-      <img id="maximize-btn" src="images/maximize.jpg" alt="Maximize">
-      <img id="browser-close-btn" src="images/exit.png" alt="close">
-    </div>
-  </div>
-  <div class="browser-content">
-    <div class="browser-toolbar">
-      <button class="browser-button">Back</button>
-      <button class="browser-button">Forward</button>
-      <button class="browser-button">Refresh</button>
-      <button class="browser-button">Home</button>
-      <input type="text" class="address-bar" value="https://www.temporary-url.com/F452">
-      <button class="browser-button go-button">Go</button>
-    </div>
-    <div class="browser-page">
-      <!-- Default page shown initially -->
-      <div class="website-content default-content active">
-        <div class="browser-loading">
-          <h2>Welcome to Internet Explorer</h2>
-          <p>Enter a URL in the address bar and click Go</p>
-        </div>
-      </div>
-      
-      <!-- First website: temporary-url.com -->
-      <div class="website-content temp-url-content">
-        <div class="browser-loading">
-          <h2>First Challenge</h2>
-          <p>The hidden URL is: <span class="secret-url">https://www.next-challenge.com/5678</span></p>
-        </div>
-      </div>
-      
-      <!-- Second website: next-challenge.com -->
-      <div class="website-content next-challenge-content">
-        <div class="next-challenge-page">
-          <h2>Second Challenge</h2>
-          <p>The hidden URL is: <span class="secret-url">https://www.nextest-challenge.com/91011</span></p>
-        </div>
-      </div>
-
-      <!-- Third website: nextest-challenge.com -->
-      <div class="website-content nextest-challenge-content">
-        <div class="nextest-challenge-page">
-          <h2>Final Challenge</h2>
-          <p>Secret code: <span class="secret-code">WINDOWS_XP_FOREVER</span></p>
-          <p>The hidden URL is: <span class="secret-url">https://www.final-challenge.com/1213</span></p>
-        </div>
-      </div>
-      
-      <!-- Fourth website: final-challenge.com -->
-      <div class="website-content final-challenge-content">
-        <div class="final-challenge-page">
-          <h2>Password please</h2>
-        </div>
-      </div>
-      
-     <div class="website-content not-found-content">
-  <div <div id="dino-game-wrapper"></div>class="browser-error">
-    <h2>404 - Page Not Found</h2>
-    <p>The requested URL was not found on this server.</p>
-    <!-- The game will be inserted here by JavaScript -->
-    <div id="dino-game-wrapper"></div>
-  </div>
-</div>
-      </div>
-    </div>
-  </div>
-`;
-desktop.appendChild(browserWindow);
-
-browserWindow.style.display = "none";
-browserWindow.style.position = "absolute";
-browserWindow.style.top = "100px";
-browserWindow.style.left = "100px";
-
+// Browser event listeners
 browserIcon.addEventListener("click", function() {
   browserWindow.style.display = "block";
   dragElement(browserWindow);
@@ -223,8 +190,10 @@ function removeBrowserFromTaskbar() {
   }
 }
 
+// Navigation functionality
 const addressBar = document.querySelector(".address-bar");
 const goButton = document.querySelector(".go-button");
+
 function navigateToUrl() {
   const url = addressBar.value.trim().toLowerCase();
   
@@ -252,52 +221,11 @@ addressBar.addEventListener("keypress", function(e) {
   }
 });
 
-document.getElementById("txtwindow").addEventListener("mousedown", function() {
+// Window focus events
+txtWindow.addEventListener("mousedown", function() {
   bringWindowToFront(this);
 });
 
 browserWindow.addEventListener("mousedown", function() {
   bringWindowToFront(this);
 });
-
-function dragElement(elmnt) {
-  let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-  } else {
-    elmnt.onmousedown = dragMouseDown;
-  }
-
-  function dragMouseDown(e) {
-    if (elmnt.id === "browserwindow" && elmnt.classList.contains("maximized")) {
-      return;
-    }
-    
-    bringWindowToFront(elmnt);
-    
-    e = e || window.event;
-    e.preventDefault();
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    document.onmousemove = elementDrag;
-  }
-
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-  }
-
-  function closeDragElement() {
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-
-
-}

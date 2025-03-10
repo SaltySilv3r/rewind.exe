@@ -6,15 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rewind.exe</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="favicon" href="/images/Windows XP.ico">
-
+    <link rel="icon" type="image/x-icon" href="images/Windows XP.ico">
     <script defer src="site.js"></script>
 </head>
 <body> 
     <div id="desktop">
-        
         <div class="desktop-icon" id="bin-icon">
-            <img src="images/bin.webp" alt="bin">
+            <img src="images/bin.webp" alt="Recycle Bin">
             <span>Recycle bin</span>
         </div>
 
@@ -24,20 +22,92 @@
         </div>
 
         <div class="desktop-icon" id="txt-icon">
-            <img src="images/notepad.webp" alt="txt">
+            <img src="images/notepad.webp" alt="Notepad">
             <span>readme.txt</span> 
         </div>
 
+        <!-- Text Window -->
         <div id="txtwindow"> 
             <div id="txtwindowheader">
                 readme.txt 
                 <div class="window-controls">
                     <img id="txt-minimize-btn" src="images/minimize.png" alt="Minimize">
-                    <img id="close-btn" src="images/exit.png" alt="close">
+                    <img id="close-btn" src="images/exit.png" alt="Close">
                 </div>
             </div>
             <div class="txt-pop-up">
                 <textarea>Find the URL on this website to unlock the next one: https://www.temporary-url.com/F452</textarea>
+            </div>
+        </div>
+        
+        <!-- Browser Window -->
+        <div id="browserwindow">
+            <div id="browserwindowheader">
+                Internet Explorer 
+                <div class="window-controls">
+                    <img id="minimize-btn" src="images/minimize.png" alt="Minimize">
+                    <img id="maximize-btn" src="images/maximize.jpg" alt="Maximize">
+                    <img id="browser-close-btn" src="images/exit.png" alt="Close">
+                </div>
+            </div>
+            <div class="browser-content">
+                <div class="browser-toolbar">
+                    <button class="browser-button">Back</button>
+                    <button class="browser-button">Forward</button>
+                    <button class="browser-button">Refresh</button>
+                    <button class="browser-button">Home</button>
+                    <input type="text" class="address-bar" value="https://www.temporary-url.com/F452">
+                    <button class="browser-button go-button">Go</button>
+                </div>
+                <div class="browser-page">
+                    <!-- Start-up website -->
+                    <div class="website-content default-content active">
+                        <div class="browser-loading">
+                            <h2>Welcome to Internet Explorer</h2>
+                            <p>Enter a URL in the address bar and click Go</p>
+                        </div>
+                    </div>
+                    
+                    <!-- First website: temporary-url.com -->
+                    <div class="website-content temp-url-content">
+                        <div class="browser-loading">
+                            <h2>First Challenge</h2>
+                            <p>The hidden URL is: <span class="secret-url">https://www.next-challenge.com/5678</span></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Second website: next-challenge.com -->
+                    <div class="website-content next-challenge-content">
+                        <div class="next-challenge-page">
+                            <h2>Second Challenge</h2>
+                            <p>The hidden URL is: <span class="secret-url">https://www.nextest-challenge.com/91011</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Third website: nextest-challenge.com -->
+                    <div class="website-content nextest-challenge-content">
+                        <div class="nextest-challenge-page">
+                            <h2>Final Challenge</h2>
+                            <p>Secret code: <span class="secret-code">WINDOWS_XP_FOREVER</span></p>
+                            <p>The hidden URL is: <span class="secret-url">https://www.final-challenge.com/1213</span></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Final Website: Password -->
+                    <div class="website-content final-challenge-content">
+                        <div class="final-challenge-page">
+                            <h2>Password please</h2>
+                        </div>
+                    </div>
+                    
+                    <!-- Not found page -->
+                    <div class="website-content not-found-content">
+                        <div class="browser-error">
+                            <h2>404 - Page Not Found</h2>
+                            <p>The requested URL was not found on this server.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
