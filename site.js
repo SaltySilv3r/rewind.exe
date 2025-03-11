@@ -203,6 +203,8 @@ function navigateToUrl() {
   
   if (url === "https://www.battlefieldcenterz.com/1942") {
     document.querySelector(".battlefieldcenterz").classList.add("active");
+  } else if (url === "https://www.temporary-url.com/f452") {
+    document.querySelector(".temp-url-content").classList.add("active");
   } else if (url === "https://www.next-challenge.com/5678") {
     document.querySelector(".next-challenge-content").classList.add("active");
   } else if (url === "https://www.nextest-challenge.com/91011") {
