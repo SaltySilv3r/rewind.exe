@@ -201,10 +201,10 @@ function navigateToUrl() {
     content.classList.remove("active");
   });
   
-  if (url === "https://www.battlefieldcenterz.com/1942") {
+  if (url === "https://www.battlefieldcenterz.com") {
     document.querySelector(".battlefieldcenterz").classList.add("active");
-  } else if (url === "https://www.temporary-url.com/f452") {
-    document.querySelector(".temp-url-content").classList.add("active");
+  } else if (url === "https://www.chaostheoryforums.com") {
+    document.querySelector(".chaostheoryforums").classList.add("active");
   } else if (url === "https://www.next-challenge.com/5678") {
     document.querySelector(".next-challenge-content").classList.add("active");
   } else if (url === "https://www.nextest-challenge.com/91011") {
