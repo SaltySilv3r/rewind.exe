@@ -305,7 +305,7 @@ button {
 }
 
 #link {
-    color: #D3D3A4;
+    color: #ffffff;
 }
 
 .bf-header {
@@ -541,90 +541,89 @@ button {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.under-construction {
+battlefield-article {
+    background-color: #4A5A41;
+}
+
+.bf-article-container {
+    display: flex;
     width: 100%;
-    height: 100%;
-    background-color: #3D3D29;
-    background-image: url('images/camo-bg.jpg');
-    font-family: 'Courier New', Courier, monospace;
-    color: #D3D3A4;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px 0;
-    box-sizing: border-box;
 }
 
-.under-construction-header {
-    padding: 15px;
-    background-color: rgba(74, 90, 65, 0.9);
-    border-bottom: 3px solid #8B8B62;
+.bf-article-content {
+    width: 75%;
+    padding: 10px;
+    background-color: rgba(74, 90, 65, 0.7);
+    line-height: 1.4;
 }
 
-.under-construction-header h1 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #D0D0A0;
-    margin: 0;
-    letter-spacing: -1px;
+.bf-article-header {
+    border-bottom: 1px solid #8B8B62;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-.under-construction-header h2 {
-    font-size: 18px;
-    color: #FF9900;
-    margin-top: 10px;
+.bf-article-body {
+    padding: 0 10px;
 }
 
-.under-construction-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.construction-gif {
-    width: 200px;
-    height: 40px;
-    margin-bottom: 20px;
-}
-
-.under-construction-content p {
-    margin: 10px 0;
+.bf-article-body h3 {
+    color: #E8E8C8;
     font-size: 14px;
+    margin: 20px 0 10px 0;
+    border-bottom: 1px dotted #8B8B62;
+    padding-bottom: 5px;
 }
 
-.under-construction-content ul {
-    list-style-type: square;
-    text-align: left;
-    display: inline-block;
-    margin: 15px auto;
-    padding-left: 20px;
+.bf-article-body ol, .bf-article-body ul {
+    margin-left: 25px;
+    margin-bottom: 15px;
 }
 
-.under-construction-content li {
+.bf-article-body li {
     margin-bottom: 8px;
-    color: #B9B97E;
 }
 
-.contact-info {
-    margin-top: 20px;
-    font-style: italic;
-    color: #B0B080;
+.bf-article-comments {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 2px dotted #8B8B62;
 }
 
-.webmaster {
-    color: #D0D0A0;
-    font-weight: bold;
+.bf-comment {
+    background-color: rgba(61, 61, 41, 0.7);
+    padding: 8px;
+    margin-bottom: 10px;
+    border-left: 3px solid #8B8B62;
 }
 
-.under-construction-footer {
-    margin-top: 20px;
+.bf-comment-meta {
     font-size: 10px;
     color: #B0B080;
+    margin-bottom: 5px;
+}
+
+.bf-comment-text {
+    font-size: 11px;
+}
+
+.bf-article-nav {
+    margin-top: 20px;
+    padding-top: 10px;
     border-top: 1px solid #8B8B62;
-    padding: 10px;
-    background-color: rgba(74, 90, 65, 0.9);
+}
+
+.bf-back-button {
+    display: inline-block;
+    background-color: #616143;
+    color: #E0E0C0;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-size: 11px;
+    border: 1px outset #8B8B62;
+}
+
+.bf-back-button:hover {
+    background-color: #4A5A41;
+    border: 1px inset #8B8B62;
 }

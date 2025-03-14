@@ -17,7 +17,7 @@ function bringWindowToFront(windowElement) {
 
   const allTaskbarButtons = document.querySelectorAll('.taskbar-button');
   allTaskbarButtons.forEach(btn => btn.classList.remove('active'));
-  
+
   const windowId = windowElement.id;
   if (windowId === "txtwindow") {
     document.getElementById("txt-taskbar-btn")?.classList.add('active');
@@ -30,7 +30,7 @@ function bringWindowToFront(windowElement) {
 function dragElement(elmnt) {
   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   const header = document.getElementById(elmnt.id + "header");
-  
+
   if (header) {
     header.onmousedown = dragMouseDown;
   } else {
@@ -41,9 +41,9 @@ function dragElement(elmnt) {
     if (elmnt.id === "browserwindow" && elmnt.classList.contains("maximized")) {
       return;
     }
-    
+
     bringWindowToFront(elmnt);
-    
+
     e = e || window.addEventListener;
     e.preventDefault();
     pos3 = e.clientX;
@@ -100,8 +100,8 @@ function addTxtToTaskbar() {
     txtBtn.id = "txt-taskbar-btn";
     txtBtn.className = "taskbar-button active";
     txtBtn.innerHTML = '<img src="images/notepad.webp" alt="Notepad"><span>readme.txt</span>';
-    
-    txtBtn.addEventListener("click", function() {
+
+    txtBtn.addEventListener("click", function () {
       if (!txtWindow.classList.contains("--show")) {
         txtWindow.classList.add("--show");
         bringWindowToFront(txtWindow);
@@ -111,7 +111,7 @@ function addTxtToTaskbar() {
         txtWindow.classList.remove("--show");
       }
     });
-    
+
     taskbar.insertBefore(txtBtn, document.getElementById("time"));
   }
 }
@@ -127,24 +127,24 @@ function removeTxtFromTaskbar() {
 const browserIcon = document.getElementById("browser");
 const browserWindow = document.getElementById("browserwindow");
 
-// Browser event listeners
-browserIcon.addEventListener("click", function() {
+// Browser addEventListener
+browserIcon.addEventListener("click", function () {
   browserWindow.style.display = "block";
   dragElement(browserWindow);
   addBrowserToTaskbar();
   bringWindowToFront(browserWindow);
 });
 
-document.getElementById("browser-close-btn").addEventListener("click", function() {
+document.getElementById("browser-close-btn").addEventListener("click", function () {
   browserWindow.style.display = "none";
   removeBrowserFromTaskbar();
 });
 
-document.getElementById("minimize-btn").addEventListener("click", function() {
+document.getElementById("minimize-btn").addEventListener("click", function () {
   browserWindow.style.display = "none";
 });
 
-document.getElementById("maximize-btn").addEventListener("click", function() {
+document.getElementById("maximize-btn").addEventListener("click", function () {
   if (!browserWindow.classList.contains("maximized")) {
     browserWindow.style.width = "calc(100%)";
     browserWindow.style.height = "calc(100% - 40px)";
@@ -167,8 +167,8 @@ function addBrowserToTaskbar() {
     browserBtn.id = "browser-taskbar-btn";
     browserBtn.className = "taskbar-button active";
     browserBtn.innerHTML = '<img src="images/explorer.webp" alt="IE"><span>Internet Explorer</span>';
-    
-    browserBtn.addEventListener("click", function() {
+
+    browserBtn.addEventListener("click", function () {
       if (browserWindow.style.display === "none") {
         browserWindow.style.display = "block";
         bringWindowToFront(browserWindow);
@@ -178,7 +178,7 @@ function addBrowserToTaskbar() {
         browserWindow.style.display = "none";
       }
     });
-    
+
     taskbar.insertBefore(browserBtn, document.getElementById("time"));
   }
 }
@@ -190,17 +190,17 @@ function removeBrowserFromTaskbar() {
   }
 }
 
-// Navigation functionality
+// Navigation 
 const addressBar = document.querySelector(".address-bar");
 const goButton = document.querySelector(".go-button");
 
 function navigateToUrl() {
   const url = addressBar.value.trim().toLowerCase();
-  
+
   document.querySelectorAll(".website-content").forEach(content => {
     content.classList.remove("active");
   });
-  
+
   if (url === "https://www.battlefieldcenterz.com") {
     document.querySelector(".battlefieldcenterz").classList.add("active");
   } else if (url === "https://www.chaostheoryforums.com") {
@@ -217,17 +217,34 @@ function navigateToUrl() {
 }
 
 goButton.addEventListener("click", navigateToUrl);
-addressBar.addEventListener("keypress", function(e) {
+addressBar.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     navigateToUrl();
   }
 });
 
-// Window focus events
-txtWindow.addEventListener("mousedown", function() {
+document.addEventListener('DOMContentLoaded', function () {
+  document.body.addEventListener('click', function (e) {
+    if (e.target && e.target.classList.contains('bf-read-more')) {
+      e.preventDefault();
+      document.querySelector('.battlefieldcenterz .bf-container').style.display = 'none';
+      const articlePage = document.querySelector('.battlefield-article');
+      if (articlePage) {
+        articlePage.classList.add('active');
+      }
+    }
+
+    if (e.target && e.target.classList.contains('bf-back-button')) {
+      e.preventDefault();
+      document.querySelector('.battlefield-article').classList.remove('active');
+      document.querySelector('.battlefieldcenterz .bf-container').style.display = 'block';
+    }
+  });
+});
+txtWindow.addEventListener("mousedown", function () {
   bringWindowToFront(this);
 });
 
-browserWindow.addEventListener("mousedown", function() {
+browserWindow.addEventListener("mousedown", function () {
   bringWindowToFront(this);
 });
