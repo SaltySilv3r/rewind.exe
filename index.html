@@ -53,19 +53,37 @@
             </div>
             <div class="browser-content">
                 <div class="browser-toolbar">
-                    <button class="browser-button">Back</button>
+                    <button class="browser-button" id="back-button">Back</button>
                     <button class="browser-button">Forward</button>
-                    <button class="browser-button">Refresh</button>
+                    <button class="browser-button" id="refresh-button">Refresh</button>
                     <button class="browser-button">Home</button>
                     <input type="text" class="address-bar">
                     <button class="browser-button go-button">Go</button>
                 </div>
                 <div class="browser-page">
+                    <!-- Loading animation -->
+                    <div class="website-content browser-loading-screen active">
+                        <div class="loading-animation">
+                            <img src="images/loading.gif" alt="Loading...">
+                            <p>Loading page, please wait...</p>
+                        </div>
+                    </div>
+
                     <!-- Start-up website -->
-                    <div class="website-content default-content active">
+                    <div class="website-content default-content">
                         <div class="browser-loading">
                             <h2>Welcome to Internet Explorer</h2>
                             <p>Enter a URL in the address bar and click Go</p>
+                        </div>
+                    </div>
+
+                    <!-- Under Construction page -->
+                    <div class="website-content under-construction">
+                        <div class="construction-page">
+                            <img src="images/UnderConstruction.gif" alt="Under Construction">
+                            <h2>Page Under Construction</h2>
+                            <p>This section of the website is currently being updated.</p>
+                            <p>Please check back later.</p>
                         </div>
                     </div>
 
@@ -80,13 +98,13 @@
                             <div class="bf-nav">
                                 <table>
                                     <tr>
-                                        <td><a>HOME</a></td>
-                                        <td><a>NEWS</a></td>
-                                        <td><a>TACTICS</a></td>
-                                        <td><a>MAPS</a></td>
-                                        <td><a>MODS</a></td>
-                                        <td><a>FORUM</a></td>
-                                        <td><a>LINKS</a></td>
+                                        <td><a href="#" class="construction-link">HOME</a></td>
+                                        <td><a href="#" class="construction-link">NEWS</a></td>
+                                        <td><a href="#" class="construction-link">TACTICS</a></td>
+                                        <td><a href="#" class="construction-link">MAPS</a></td>
+                                        <td><a href="#" class="construction-link">MODS</a></td>
+                                        <td><a href="#" class="construction-link">FORUM</a></td>
+                                        <td><a href="#" class="construction-link">LINKS</a></td>
                                     </tr>
                                 </table>
                             </div>
@@ -105,27 +123,31 @@
                                 <div class="bf-sidebar">
                                     <h3>BATTLEFIELD INFO</h3>
                                     <ul>
-                                        <li><a href="#patch">Patch 1.2 Changes</a></li>
-                                        <li><a href="#class">Class Comparison</a></li>
-                                        <li><a href="#weapons">Weapons Guide</a></li>
-                                        <li><a href="#maps">Complete Map List</a></li>
-                                        <li><a href="#server">Server Browser Help</a></li>
+                                        <li><a href="#" class="construction-link">Patch 1.2 Changes</a></li>
+                                        <li><a href="#" class="construction-link">Class Comparison</a></li>
+                                        <li><a href="#" class="construction-link">Weapons Guide</a></li>
+                                        <li><a href="#" class="construction-link">Complete Map List</a></li>
+                                        <li><a href="#" class="construction-link">Server Browser Help</a></li>
                                     </ul>
 
                                     <h3>TOP DOWNLOADS</h3>
                                     <ul>
-                                        <li><a>BF1942 Config Tweaker</a> <span class="bf-filesize">(1.2mb)</span></li>
-                                        <li><a>Unofficial Map Pack</a> <span class="bf-filesize">(6.8mb)</span></li>
-                                        <li><a>Plane Controls PDF</a> <span class="bf-filesize">(0.3mb)</span></li>
-                                        <li><a>Crosshair Mod</a> <span class="bf-filesize">(0.7mb)</span></li>
+                                        <li><a href="#" class="construction-link">BF1942 Config Tweaker</a> <span
+                                                class="bf-filesize">(1.2mb)</span></li>
+                                        <li><a href="#" class="construction-link">Unofficial Map Pack</a> <span
+                                                class="bf-filesize">(6.8mb)</span></li>
+                                        <li><a href="#" class="construction-link">Plane Controls PDF</a> <span
+                                                class="bf-filesize">(0.3mb)</span></li>
+                                        <li><a href="#" class="construction-link">Crosshair Mod</a> <span
+                                                class="bf-filesize">(0.7mb)</span></li>
                                     </ul>
 
                                     <h3>CLAN LINKS</h3>
                                     <ul>
-                                        <li><a href="#ww2">=WW2= Warriors</a></li>
-                                        <li><a href="#101st">[101st] Airborne</a></li>
-                                        <li><a href="#tac">{TAC} Tactical Squad</a></li>
-                                        <li><a href="#ss">*SS* Strike Squad</a></li>
+                                        <li><a href="#" class="construction-link">=WW2= Warriors</a></li>
+                                        <li><a href="#" class="construction-link">[101st] Airborne</a></li>
+                                        <li><a href="#" class="construction-link">{TAC} Tactical Squad</a></li>
+                                        <li><a href="#" class="construction-link">*SS* Strike Squad</a></li>
                                     </ul>
                                 </div>
 
@@ -211,195 +233,197 @@
                                     Email: bfcommandcenter@rewindmail.com</p>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="website-content battlefield-article">
-                            <div class="bf-container">
-                                <div class="bf-header">
-                                    <h1 class="bf-logo">BATTLEFIELD 1942 COMMAND CENTER</h1>
-                                    <div class="bf-subtitle">Your Tactical HQ for BF1942 Intel since 11.19.02</div>
-                                </div>
+                    <div class="website-content battlefield-article">
+                        <div class="bf-container">
+                            <div class="bf-header">
+                                <h1 class="bf-logo">BATTLEFIELD 1942 COMMAND CENTER</h1>
+                                <div class="bf-subtitle">Your Tactical HQ for BF1942 Intel since 11.19.02</div>
+                            </div>
 
-                                <div class="bf-nav">
-                                    <table>
-                                        <tr>
-                                            <td><a>HOME</a></td>
-                                            <td><a>NEWS</a></td>
-                                            <td><a>TACTICS</a></td>
-                                            <td><a>MAPS</a></td>
-                                            <td><a>MODS</a></td>
-                                            <td><a>FORUM</a></td>
-                                            <td><a>LINKS</a></td>
-                                        </tr>
-                                    </table>
-                                </div>
+                            <div class="bf-nav">
+                                <table>
+                                    <tr>
+                                        <td><a href="#" class="construction-link">HOME</a></td>
+                                        <td><a href="#" class="construction-link">NEWS</a></td>
+                                        <td><a href="#" class="construction-link">TACTICS</a></td>
+                                        <td><a href="#" class="construction-link">MAPS</a></td>
+                                        <td><a href="#" class="construction-link">MODS</a></td>
+                                        <td><a href="#" class="construction-link">FORUM</a></td>
+                                        <td><a href="#" class="construction-link">LINKS</a></td>
+                                    </tr>
+                                </table>
+                            </div>
 
-                                <div class="bf-article-container">
-                                    <div class="bf-article-content">
-                                        <div class="bf-article-header">
-                                            <div class="bf-post-title">Mastering the Art of Tank Warfare - El Alamein
-                                                Strategies</div>
-                                            <div class="bf-post-meta">Posted by: Sgt_SteelTiger | March 10, 2002 | Filed
-                                                under: Tactics, Vehicles</div>
-                                        </div>
-
-                                        <div class="bf-article-body">
-                                            <p>Whats up soldiers! After countless hours pwning n00bs on El Alamein, I
-                                                figured it was time to share some of my elite tank strategies. This
-                                                desert map is ALL about armor control, and if ur team doesn't know these
-                                                tricks, prepare to get owned HARD.</p>
-
-                                            <div class="bfimage"><img src="images/bfsc2.png" alt="tank"></div>
-
-                                            <p>First off, forget what everyone keeps saying about rushing the center
-                                                flag. That's a total deathtrap unless you've got SERIOUS air support.
-                                                The real pro strat is to form a "crescent" formation with 3-4 tanks
-                                                along the eastern ridge. From there u can totally dominate the map while
-                                                staying protected from air attacks.</p>
-
-                                            <p>My clan (=WW2= Warriors) used this last weekend in CAL and totally
-                                                destroyed the competition. The trick is having a dedicated repair guy
-                                                for each tank. Some ppl think engineers are useless but they're SO
-                                                wrong. A good engineer/tank combo is practically UNSTOPPABLE!!</p>
-
-                                            <h3>ELITE TANK TACTICS FOR EL ALAMEIN</h3>
-
-                                            <p>Here's my step-by-step guide to dominating in tanks on El Alamein:</p>
-
-                                            <ol>
-                                                <li><strong>FORMATION IS KEY</strong> - Always maintain the crescent
-                                                    formation along the eastern ridge. Each tank should be about 50-75m
-                                                    apart with clear lines of sight to the center flags.</li>
-
-                                                <li><strong>ENGINEER SUPPORT</strong> - Every tank MUST have a dedicated
-                                                    engineer. The engineer should stay on the opposite side of the tank
-                                                    from enemy fire and constantly repair.</li>
-
-                                                <li><strong>TARGET PRIORITY</strong> - Always take out enemy tanks
-                                                    first, then planes, then infantry. A good tank crew communicates
-                                                    targets clearly.</li>
-
-                                                <li><strong>RIDGE FIGHTING</strong> - Only expose your turret when
-                                                    firing. Back down behind the ridge while reloading to avoid getting
-                                                    hit.</li>
-
-                                                <li><strong>DEFILADE POSITION</strong> - Learn to use "hull down"
-                                                    positions where only your turret is visible to enemies.</li>
-                                            </ol>
-
-                                            <div class="bfimage"><img src="images/bfsc1.jpg" alt="tank position map">
-                                            </div>
-
-                                            <p>The map above shows the optimal positions for your tank formation. Notice
-                                                how we maintain control of both the center and the eastern flags while
-                                                having perfect sight lines to the enemy spawn.</p>
-
-                                            <h3>COUNTER-TACTICS</h3>
-
-                                            <p>If the enemy team is using the same strategy, here's how to counter it:
-                                            </p>
-
-                                            <ul>
-                                                <li>Use smoke grenades (mod required) to blind their sight lines</li>
-                                                <li>Coordinate bomber runs from multiple directions</li>
-                                                <li>Send infiltration squads of engineers with explosives behind their
-                                                    lines</li>
-                                                <li>Use the western ridge to flank their position with fast-moving Jeeps
-                                                </li>
-                                            </ul>
-
-                                            <p>I've been testing these strategies with my clan for weeks now and our win
-                                                rate on El Alamein has gone from 65% to over 90%! The key is
-                                                COMMUNICATION and COORDINATION. Make sure everyone on your team knows
-                                                their role and sticks to it.</p>
-
-                                            <p>If anyone wants to join us for practice or scrims, we're always looking
-                                                for more skilled players who understand TEAMWORK. Our clan server is up
-                                                24/7 at 216.54.23.78:14567 (password: ww2warriors).</p>
-
-                                            <p>Next week I'll be posting my guide to air superiority on Midway, so check
-                                                back for more elite strats!</p>
-                                        </div>
-
-                                        <div class="bf-article-comments">
-                                            <h3>COMMENTS:</h3>
-
-                                            <div class="bf-comment">
-                                                <div class="bf-comment-meta">Posted by: CommandoJoe | March 10, 2002 |
-                                                    14:32</div>
-                                                <div class="bf-comment-text">Nice guide SteelTiger! Been using this
-                                                    strat since you showed it to us last month and it works EVERY time.
-                                                    The repair guy is key tho, without him you're toast against good
-                                                    players.</div>
-                                            </div>
-
-                                            <div class="bf-comment">
-                                                <div class="bf-comment-meta">Posted by: {TAC}Sniper42 | March 10, 2002 |
-                                                    15:17</div>
-                                                <div class="bf-comment-text">Kinda cheap strategy tbh. Real skill is in
-                                                    infantry combat, not camping with tanks. Just sayin...</div>
-                                            </div>
-
-                                            <div class="bf-comment">
-                                                <div class="bf-comment-meta">Posted by: Sgt_SteelTiger | March 10, 2002
-                                                    | 15:45</div>
-                                                <div class="bf-comment-text">@{TAC}Sniper42 - It's called TACTICS bro.
-                                                    The game is about WINNING not just running around with a sniper
-                                                    rifle getting headshots. This is why your clan lost to us 3 times
-                                                    last tournament lol!</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="bf-signature">
-                                            ~ Sgt_SteelTiger<br>
-                                            =WW2= Warriors Clan | Tank Division Captain<br>
-                                            ICQ: 247895633 | <span id="link">theoryforums.com</span>
-                                        </div>
-
-                                        <div class="bf-article-nav">
-                                            <a href="#" class="bf-back-button">&lt;&lt; BACK TO HOME</a>
-                                        </div>
+                            <div class="bf-article-container">
+                                <div class="bf-article-content">
+                                    <div class="bf-article-header">
+                                        <div class="bf-post-title">Mastering the Art of Tank Warfare - El Alamein
+                                            Strategies</div>
+                                        <div class="bf-post-meta">Posted by: Sgt_SteelTiger | March 10, 2002 | Filed
+                                            under: Tactics, Vehicles</div>
                                     </div>
 
-                                    <div class="bf-sidebar">
-                                        <h3>BATTLEFIELD INFO</h3>
-                                        <ul>
-                                            <li><a>Patch 1.2 Changes</a></li>
-                                            <li><a href="#class">Class Comparison</a></li>
-                                            <li><a href="#weapons">Weapons Guide</a></li>
-                                            <li><a href="#maps">Complete Map List</a></li>
-                                            <li><a href="#server">Server Browser Help</a></li>
-                                        </ul>
+                                    <div class="bf-article-body">
+                                        <p>Whats up soldiers! After countless hours pwning n00bs on El Alamein, I
+                                            figured it was time to share some of my elite tank strategies. This
+                                            desert map is ALL about armor control, and if ur team doesn't know these
+                                            tricks, prepare to get owned HARD.</p>
 
-                                        <h3>TOP DOWNLOADS</h3>
+                                        <div class="bfimage"><img src="images/bfsc2.png" alt="tank"></div>
+
+                                        <p>First off, forget what everyone keeps saying about rushing the center
+                                            flag. That's a total deathtrap unless you've got SERIOUS air support.
+                                            The real pro strat is to form a "crescent" formation with 3-4 tanks
+                                            along the eastern ridge. From there u can totally dominate the map while
+                                            staying protected from air attacks.</p>
+
+                                        <p>My clan (=WW2= Warriors) used this last weekend in CAL and totally
+                                            destroyed the competition. The trick is having a dedicated repair guy
+                                            for each tank. Some ppl think engineers are useless but they're SO
+                                            wrong. A good engineer/tank combo is practically UNSTOPPABLE!!</p>
+
+                                        <h3>ELITE TANK TACTICS FOR EL ALAMEIN</h3>
+
+                                        <p>Here's my step-by-step guide to dominating in tanks on El Alamein:</p>
+
+                                        <ol>
+                                            <li><strong>FORMATION IS KEY</strong> - Always maintain the crescent
+                                                formation along the eastern ridge. Each tank should be about 50-75m
+                                                apart with clear lines of sight to the center flags.</li>
+
+                                            <li><strong>ENGINEER SUPPORT</strong> - Every tank MUST have a dedicated
+                                                engineer. The engineer should stay on the opposite side of the tank
+                                                from enemy fire and constantly repair.</li>
+
+                                            <li><strong>TARGET PRIORITY</strong> - Always take out enemy tanks
+                                                first, then planes, then infantry. A good tank crew communicates
+                                                targets clearly.</li>
+
+                                            <li><strong>RIDGE FIGHTING</strong> - Only expose your turret when
+                                                firing. Back down behind the ridge while reloading to avoid getting
+                                                hit.</li>
+
+                                            <li><strong>DEFILADE POSITION</strong> - Learn to use "hull down"
+                                                positions where only your turret is visible to enemies.</li>
+                                        </ol>
+
+                                        <div class="bfimage"><img src="images/bfsc1.jpg" alt="tank position map">
+                                        </div>
+
+                                        <p>The map above shows the optimal positions for your tank formation. Notice
+                                            how we maintain control of both the center and the eastern flags while
+                                            having perfect sight lines to the enemy spawn.</p>
+
+                                        <h3>COUNTER-TACTICS</h3>
+
+                                        <p>If the enemy team is using the same strategy, here's how to counter it:
+                                        </p>
+
                                         <ul>
-                                            <li><a>BF1942 Config Tweaker</a> <span class="bf-filesize">(1.2mb)</span>
+                                            <li>Use smoke grenades (mod required) to blind their sight lines</li>
+                                            <li>Coordinate bomber runs from multiple directions</li>
+                                            <li>Send infiltration squads of engineers with explosives behind their
+                                                lines</li>
+                                            <li>Use the western ridge to flank their position with fast-moving Jeeps
                                             </li>
-                                            <li><a>Unofficial Map Pack</a> <span class="bf-filesize">(6.8mb)</span></li>
-                                            <li><a>Plane Controls PDF</a> <span class="bf-filesize">(0.3mb)</span></li>
-                                            <li><a>Crosshair Mod</a> <span class="bf-filesize">(0.7mb)</span></li>
                                         </ul>
 
-                                        <h3>RELATED ARTICLES</h3>
-                                        <ul>
-                                            <li><a>Tank vs. Tank Combat Guide</a></li>
-                                            <li><a>Desert Combat Mod Preview</a></li>
-                                            <li><a>Anti-Tank Infantry Tactics</a></li>
-                                            <li><a>Battlefield Server Setup</a></li>
-                                        </ul>
+                                        <p>I've been testing these strategies with my clan for weeks now and our win
+                                            rate on El Alamein has gone from 65% to over 90%! The key is
+                                            COMMUNICATION and COORDINATION. Make sure everyone on your team knows
+                                            their role and sticks to it.</p>
+
+                                        <p>If anyone wants to join us for practice or scrims, we're always looking
+                                            for more skilled players who understand TEAMWORK. Our clan server is up
+                                            24/7 at 216.54.23.78:14567 (password: ww2warriors).</p>
+
+                                        <p>Next week I'll be posting my guide to air superiority on Midway, so check
+                                            back for more elite strats!</p>
+                                    </div>
+
+                                    <div class="bf-article-comments">
+                                        <h3>COMMENTS:</h3>
+
+                                        <div class="bf-comment">
+                                            <div class="bf-comment-meta">Posted by: CommandoJoe | March 10, 2002 |
+                                                14:32</div>
+                                            <div class="bf-comment-text">Nice guide SteelTiger! Been using this
+                                                strat since you showed it to us last month and it works EVERY time.
+                                                The repair guy is key tho, without him you're toast against good
+                                                players.</div>
+                                        </div>
+
+                                        <div class="bf-comment">
+                                            <div class="bf-comment-meta">Posted by: {TAC}Sniper42 | March 10, 2002 |
+                                                15:17</div>
+                                            <div class="bf-comment-text">Kinda cheap strategy tbh. Real skill is in
+                                                infantry combat, not camping with tanks. Just sayin...</div>
+                                        </div>
+
+                                        <div class="bf-comment">
+                                            <div class="bf-comment-meta">Posted by: Sgt_SteelTiger | March 10, 2002
+                                                | 15:45</div>
+                                            <div class="bf-comment-text">@{TAC}Sniper42 - It's called TACTICS bro.
+                                                The game is about WINNING not just running around with a sniper
+                                                rifle getting headshots. This is why your clan lost to us 3 times
+                                                last tournament lol!</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bf-signature">
+                                        ~ Sgt_SteelTiger<br>
+                                        =WW2= Warriors Clan | Tank Division Captain<br>
+                                        ICQ: 247895633 | <span id="link">theoryforums.com</span>
+                                    </div>
+
+                                    <div class="bf-article-nav">
+                                        <a href="#" id="back-to-home" class="bf-back-button">&lt;&lt; BACK TO HOME</a>
                                     </div>
                                 </div>
 
-                                <div class="bf-footer">
-                                    <p>© 2002 BATTLEFIELD 1942 COMMAND CENTER | All BF1942 content is property of
-                                        Digital Illusions CE and Electronic Arts</p>
-                                    <p>This site best viewed in Internet Explorer at 800x600 | Webmaster: Sgt_SteelTiger
-                                        | Email: bfcommandcenter@rewindmail.com</p>
+                                <div class="bf-sidebar">
+                                    <h3>BATTLEFIELD INFO</h3>
+                                    <ul>
+                                        <li><a href="#" class="construction-link">Patch 1.2 Changes</a></li>
+                                        <li><a href="#" class="construction-link">Class Comparison</a></li>
+                                        <li><a href="#" class="construction-link">Weapons Guide</a></li>
+                                        <li><a href="#" class="construction-link">Complete Map List</a></li>
+                                        <li><a href="#" class="construction-link">Server Browser Help</a></li>
+                                    </ul>
+
+                                    <h3>TOP DOWNLOADS</h3>
+                                    <ul>
+                                        <li><a href="#" class="construction-link">BF1942 Config Tweaker</a> <span
+                                                class="bf-filesize">(1.2mb)</span>
+                                        </li>
+                                        <li><a href="#" class="construction-link">Unofficial Map Pack</a> <span
+                                                class="bf-filesize">(6.8mb)</span></li>
+                                        <li><a href="#" class="construction-link">Plane Controls PDF</a> <span
+                                                class="bf-filesize">(0.3mb)</span></li>
+                                        <li><a href="#" class="construction-link">Crosshair Mod</a> <span
+                                                class="bf-filesize">(0.7mb)</span></li>
+                                    </ul>
+
+                                    <h3>RELATED ARTICLES</h3>
+                                    <ul>
+                                        <li><a href="#" class="construction-link">Tank vs. Tank Combat Guide</a></li>
+                                        <li><a href="#" class="construction-link">Desert Combat Mod Preview</a></li>
+                                        <li><a href="#" class="construction-link">Anti-Tank Infantry Tactics</a></li>
+                                        <li><a href="#" class="construction-link">Battlefield Server Setup</a></li>
+                                    </ul>
                                 </div>
+                            </div>
+
+                            <div class="bf-footer">
+                                <p>© 2002 BATTLEFIELD 1942 COMMAND CENTER | All BF1942 content is property of
+                                    Digital Illusions CE and Electronic Arts</p>
+                                <p>This site best viewed in Internet Explorer at 800x600 | Webmaster: Sgt_SteelTiger
+                                    | Email: bfcommandcenter@rewindmail.com</p>
                             </div>
                         </div>
                     </div>
-
-
 
                     <!-- First website: battlefieldcenterz.com -->
                     <div class="website-content battlefieldcenterz">

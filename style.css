@@ -627,3 +627,51 @@ battlefield-article {
     background-color: #4A5A41;
     border: 1px inset #8B8B62;
 }
+
+/* Loading screen styles */
+.loading-animation {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.loading-animation img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.loading-animation p {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Under Construction page styles */
+.construction-page {
+    text-align: center;
+    padding: 40px;
+    background-color: #ffffcc;
+    border: 2px solid #ffcc00;
+    margin: 50px auto;
+    max-width: 600px;
+}
+
+.construction-page h2 {
+    color: #cc0000;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
+}
+
+.construction-page img {
+    margin-bottom: 20px;
+    max-width: 150px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #3366cc;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 3px;
+}

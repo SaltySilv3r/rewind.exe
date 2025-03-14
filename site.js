@@ -10,6 +10,10 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
+// Browser history functionality
+let browserHistory = [];
+let currentHistoryPosition = -1;
+
 // Window management
 let zIndexCounter = 100;
 function bringWindowToFront(windowElement) {
@@ -190,41 +194,115 @@ function removeBrowserFromTaskbar() {
   }
 }
 
-// Navigation 
-const addressBar = document.querySelector(".address-bar");
-const goButton = document.querySelector(".go-button");
-
-function navigateToUrl() {
-  const url = addressBar.value.trim().toLowerCase();
-
+// Show loading screen for realistic delay
+function showLoadingScreen() {
+  // Hide all website content
   document.querySelectorAll(".website-content").forEach(content => {
     content.classList.remove("active");
   });
 
-  if (url === "https://www.battlefieldcenterz.com") {
-    document.querySelector(".battlefieldcenterz").classList.add("active");
-  } else if (url === "https://www.chaostheoryforums.com") {
-    document.querySelector(".chaostheoryforums").classList.add("active");
-  } else if (url === "https://www.next-challenge.com/5678") {
-    document.querySelector(".next-challenge-content").classList.add("active");
-  } else if (url === "https://www.nextest-challenge.com/91011") {
-    document.querySelector(".nextest-challenge-content").classList.add("active");
-  } else if (url === "https://www.final-challenge.com/1213") {
-    document.querySelector(".final-challenge-content").classList.add("active");
-  } else {
-    document.querySelector(".not-found-content").classList.add("active");
-  }
+  // Show loading screen
+  document.querySelector(".browser-loading-screen").classList.add("active");
 }
 
-goButton.addEventListener("click", navigateToUrl);
+function hideLoadingScreen() {
+  document.querySelector(".browser-loading-screen").classList.remove("active");
+}
+
+// Navigation 
+const addressBar = document.querySelector(".address-bar");
+const goButton = document.querySelector(".go-button");
+const backButton = document.getElementById("back-button");
+const refreshButton = document.getElementById("refresh-button");
+
+function navigateToUrl(url, addToHistory = true) {
+  showLoadingScreen();
+
+  // Add current URL to history if needed
+  if (addToHistory && url) {
+    // If we navigated backward/forward and then to a new URL, truncate the forward history
+    if (currentHistoryPosition < browserHistory.length - 1) {
+      browserHistory = browserHistory.slice(0, currentHistoryPosition + 1);
+    }
+
+    browserHistory.push(url);
+    currentHistoryPosition = browserHistory.length - 1;
+  }
+
+  // Simulate loading delay
+  setTimeout(() => {
+    hideLoadingScreen();
+
+    document.querySelectorAll(".website-content").forEach(content => {
+      content.classList.remove("active");
+    });
+
+    if (!url || url === "") {
+      document.querySelector(".default-content").classList.add("active");
+    } else if (url === "https://www.battlefieldcenterz.com") {
+      document.querySelector(".battlefieldcenterz").classList.add("active");
+    } else if (url === "https://www.chaostheoryforums.com") {
+      document.querySelector(".ChaosTheoryForum").classList.add("active");
+    } else if (url === "https://www.nextest-challenge.com/91011") {
+      document.querySelector(".nextest-challenge-content").classList.add("active");
+    } else if (url === "https://www.final-challenge.com/1213") {
+      document.querySelector(".final-challenge-content").classList.add("active");
+    } else if (url === "under-construction") {
+      document.querySelector(".under-construction").classList.add("active");
+    } else {
+      document.querySelector(".not-found-content").classList.add("active");
+    }
+
+    // Update address bar with current URL
+    if (url) {
+      addressBar.value = url;
+    }
+  }, Math.random() * 1000 + 1000); // Random delay between 1-2 seconds
+}
+
+// Go button click handler
+goButton.addEventListener("click", function () {
+  const url = addressBar.value.trim().toLowerCase();
+  navigateToUrl(url);
+});
+
+// Enter key in address bar
 addressBar.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
-    navigateToUrl();
+    const url = addressBar.value.trim().toLowerCase();
+    navigateToUrl(url);
   }
 });
 
+// Back button functionality
+backButton.addEventListener("click", function () {
+  if (currentHistoryPosition > 0) {
+    currentHistoryPosition--;
+    const previousUrl = browserHistory[currentHistoryPosition];
+    navigateToUrl(previousUrl, false);
+  }
+});
+
+// Refresh button functionality
+refreshButton.addEventListener("click", function () {
+  if (browserHistory.length > 0 && currentHistoryPosition >= 0) {
+    const currentUrl = browserHistory[currentHistoryPosition];
+    navigateToUrl(currentUrl, false);
+  } else {
+    navigateToUrl("", false);
+  }
+});
+
+// Construction links handler
 document.addEventListener('DOMContentLoaded', function () {
+  // Handle construction links
   document.body.addEventListener('click', function (e) {
+    if (e.target && e.target.classList.contains('construction-link')) {
+      e.preventDefault();
+      navigateToUrl("under-construction");
+    }
+
+    // Article read more handler
     if (e.target && e.target.classList.contains('bf-read-more')) {
       e.preventDefault();
       document.querySelector('.battlefieldcenterz .bf-container').style.display = 'none';
@@ -234,13 +312,21 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    if (e.target && e.target.classList.contains('bf-back-button')) {
+    // Article back button handler
+    if (e.target && (e.target.classList.contains('bf-back-button') || e.target.id === 'back-to-home')) {
       e.preventDefault();
       document.querySelector('.battlefield-article').classList.remove('active');
       document.querySelector('.battlefieldcenterz .bf-container').style.display = 'block';
+      document.querySelector('.battlefieldcenterz').classList.add('active');
     }
   });
+
+  // Initial state
+  if (browserWindow.style.display !== "none") {
+    navigateToUrl("", false);
+  }
 });
+
 txtWindow.addEventListener("mousedown", function () {
   bringWindowToFront(this);
 });
