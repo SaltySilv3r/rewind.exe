@@ -334,3 +334,4 @@ txtWindow.addEventListener("mousedown", function () {
 browserWindow.addEventListener("mousedown", function () {
   bringWindowToFront(this);
 });
+

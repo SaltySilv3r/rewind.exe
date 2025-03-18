@@ -541,13 +541,14 @@ button {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-battlefield-article {
+.battlefield-article {
     background-color: #4A5A41;
 }
 
-.bf-article-container {
-    display: flex;
-    width: 100%;
+.bf-container {
+    max-width: 100%; /* Change from 760px to fill the browser window */
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .bf-article-content {
@@ -675,3 +676,4 @@ battlefield-article {
     text-decoration: none;
     border-radius: 3px;
 }
+
