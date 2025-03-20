@@ -700,12 +700,13 @@ button {
 #second-url-part {
     color: rgba(74, 90, 65, 0.98); /* Almost invisible */
     text-decoration: none;
-    cursor: text;
+    cursor: pointer;
     font-style: normal;
 }
 
 #second-url-part:hover {
     color: #ffffff; /* Show on hover */
+    text-decoration: underline;
 }
 
 /* For clearer visibility of highlighted elements */
