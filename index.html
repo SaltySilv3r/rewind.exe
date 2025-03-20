@@ -11,154 +11,287 @@
 </head>
 
 <body>
-    <div id="desktop">
-        <div class="desktop-icon" id="bin-icon">
-            <img src="images/bin.webp" alt="Recycle Bin">
-            <span>Recycle bin</span>
-        </div>
+    <div id="boot-screen" class="full-screen">
+        <video id="boot-video" autoplay muted>
+            <source src="images/xpstartup.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div id="desktop" style="display:none;">
+        <div id="desktop">
+            <div class="desktop-icon" id="bin-icon">
+                <img src="images/bin.webp" alt="Recycle Bin">
+                <span>Recycle bin</span>
+            </div>
 
-        <div class="desktop-icon" id="browser">
-            <img src="images/explorer.webp" alt="Explorer">
-            <span>Browser</span>
-        </div>
+            <div class="desktop-icon" id="browser">
+                <img src="images/explorer.webp" alt="Explorer">
+                <span>Browser</span>
+            </div>
 
-        <div class="desktop-icon" id="txt-icon">
-            <img src="images/notepad.webp" alt="Notepad">
-            <span>readme.txt</span>
-        </div>
+            <div class="desktop-icon" id="txt-icon">
+                <img src="images/notepad.webp" alt="Notepad">
+                <span>readme.txt</span>
+            </div>
 
-        <!-- Text Window -->
-        <div id="txtwindow">
-            <div id="txtwindowheader">
-                readme.txt
-                <div class="window-controls">
-                    <img id="txt-minimize-btn" src="images/minimize.png" alt="Minimize">
-                    <img id="close-btn" src="images/exit.png" alt="Close">
+            <!-- Text Window -->
+            <div id="txtwindow">
+                <div id="txtwindowheader">
+                    readme.txt
+                    <div class="window-controls">
+                        <img id="txt-minimize-btn" src="images/minimize.png" alt="Minimize">
+                        <img id="close-btn" src="images/exit.png" alt="Close">
+                    </div>
+                </div>
+                <div class="txt-pop-up">
+                    <textarea>Read through the website https://www.battlefieldcenterz.com and find the hidden URL to unlock the next stage.</textarea>
                 </div>
             </div>
-            <div class="txt-pop-up">
-                <textarea>Read through the website https://www.battlefieldcenterz.com and find the hidden URL to unlock the next stage.</textarea>
-            </div>
-        </div>
 
-        <!-- Browser Window -->
-        <div id="browserwindow">
-            <div id="browserwindowheader">
-                Explorer
-                <div class="window-controls">
-                    <img id="minimize-btn" src="images/minimize.png" alt="Minimize">
-                    <img id="maximize-btn" src="images/maximize.jpg" alt="Maximize">
-                    <img id="browser-close-btn" src="images/exit.png" alt="Close">
+            <!-- Browser Window -->
+            <div id="browserwindow">
+                <div id="browserwindowheader">
+                    Explorer
+                    <div class="window-controls">
+                        <img id="minimize-btn" src="images/minimize.png" alt="Minimize">
+                        <img id="maximize-btn" src="images/maximize.jpg" alt="Maximize">
+                        <img id="browser-close-btn" src="images/exit.png" alt="Close">
+                    </div>
                 </div>
-            </div>
-            <div class="browser-content">
-                <div class="browser-toolbar">
-                    <button class="browser-button" id="back-button">Back</button>
-                    <button class="browser-button">Forward</button>
-                    <button class="browser-button" id="refresh-button">Refresh</button>
-                    <button class="browser-button">Home</button>
-                    <input type="text" class="address-bar">
-                    <button class="browser-button go-button">Go</button>
-                </div>
-                <div class="browser-page">
-                    <!-- Loading animation -->
-                    <div class="website-content browser-loading-screen active">
-                        <div class="loading-animation">
-                            <img src="images/loading.gif" alt="Loading...">
-                            <p>Loading page, please wait...</p>
-                        </div>
+                <div class="browser-content">
+                    <div class="browser-toolbar">
+                        <button class="browser-button" id="back-button">Back</button>
+                        <button class="browser-button">Forward</button>
+                        <button class="browser-button" id="refresh-button">Refresh</button>
+                        <button class="browser-button">Home</button>
+                        <input type="text" class="address-bar">
+                        <button class="browser-button go-button">Go</button>
                     </div>
-
-                    <!-- Start-up website -->
-                    <div class="website-content default-content">
-                        <div class="browser-loading">
-                            <h2>Welcome to Internet Explorer</h2>
-                            <p>Enter a URL in the address bar and click Go</p>
+                    <div class="browser-page">
+                        <!-- Loading animation -->
+                        <div class="website-content browser-loading-screen active">
+                            <div class="loading-animation">
+                                <img src="images/loading.gif" alt="Loading...">
+                                <p>Loading page, please wait...</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Under Construction page -->
-                    <div class="website-content under-construction">
-                        <div class="construction-page">
-                            <img src="images/UnderConstruction.gif" alt="Under Construction">
-                            <h2>Page Under Construction</h2>
-                            <p>This section of the website is currently being updated.</p>
-                            <p>Please check back later.</p>
+                        <!-- Start-up website -->
+                        <div class="website-content default-content">
+                            <div class="browser-loading">
+                                <h2>Welcome to Internet Explorer</h2>
+                                <p>Enter a URL in the address bar and click Go</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Battlefield Command Center Website -->
-                    <div class="website-content battlefieldcenterz">
-                        <div class="bf-container">
-                            <div class="bf-header">
-                                <h1 class="bf-logo">BATTLEFIELD 1942 COMMAND CENTER</h1>
-                                <div class="bf-subtitle">Your Tactical HQ for BF1942 Intel since 11.19.02</div>
+                        <!-- Under Construction page -->
+                        <div class="website-content under-construction">
+                            <div class="construction-page">
+                                <img src="images/UnderConstruction.gif" alt="Under Construction">
+                                <h2>Page Under Construction</h2>
+                                <p>This section of the website is currently being updated.</p>
+                                <p>Please check back later.</p>
                             </div>
+                        </div>
 
-                            <div class="bf-nav">
-                                <table>
-                                    <tr>
-                                        <td><a href="#" class="construction-link">HOME</a></td>
-                                        <td><a href="#" class="construction-link">NEWS</a></td>
-                                        <td><a href="#" class="construction-link">TACTICS</a></td>
-                                        <td><a href="#" class="construction-link">MAPS</a></td>
-                                        <td><a href="#" class="construction-link">MODS</a></td>
-                                        <td><a href="#" class="construction-link">FORUM</a></td>
-                                        <td><a href="#" class="construction-link">LINKS</a></td>
-                                    </tr>
-                                </table>
-                            </div>
+                        <!-- Battlefield Command Center Website -->
+                        <div class="website-content battlefieldcenterz">
+                            <div class="bf-container">
+                                <div class="bf-header">
+                                    <h1 class="bf-logo">BATTLEFIELD 1942 COMMAND CENTER</h1>
+                                    <div class="bf-subtitle">Your Tactical HQ for BF1942 Intel since 11.19.02</div>
+                                </div>
 
-                            <div class="bf-updates">
-                                <h4>SITE UPDATES:</h4>
-                                <ul>
-                                    <li><span class="bf-new-flash">NEW!</span> Added Stalingrad strategy guide -
-                                        03.10.02</li>
-                                        <li id="link"><span id="first-url-part">https://www.chaostheoryforums.com</span> - 03.07.02</li>
-                                    <li>Fixed broken download links - 03.05.02</li>
-                                </ul>
-                            </div>
+                                <div class="bf-nav">
+                                    <table>
+                                        <tr>
+                                            <td><a href="#" class="construction-link">HOME</a></td>
+                                            <td><a href="#" class="construction-link">NEWS</a></td>
+                                            <td><a href="#" class="construction-link">TACTICS</a></td>
+                                            <td><a href="#" class="construction-link">MAPS</a></td>
+                                            <td><a href="#" class="construction-link">MODS</a></td>
+                                            <td><a href="#" class="construction-link">FORUM</a></td>
+                                            <td><a href="#" class="construction-link">LINKS</a></td>
+                                        </tr>
+                                    </table>
+                                </div>
 
-                            <div class="bf-blog-container">
-                                <div class="bf-sidebar">
-                                    <h3>BATTLEFIELD INFO</h3>
+                                <div class="bf-updates">
+                                    <h4>SITE UPDATES:</h4>
                                     <ul>
-                                        <li><a href="#" class="construction-link">Patch 1.2 Changes</a></li>
-                                        <li><a href="#" class="construction-link">Class Comparison</a></li>
-                                        <li><a href="#" class="construction-link">Weapons Guide</a></li>
-                                        <li><a href="#" class="construction-link">Complete Map List</a></li>
-                                        <li><a href="#" class="construction-link">Server Browser Help</a></li>
-                                    </ul>
-
-                                    <h3>TOP DOWNLOADS</h3>
-                                    <ul>
-                                        <li><a href="#" class="construction-link">BF1942 Config Tweaker</a> <span
-                                                class="bf-filesize">(1.2mb)</span></li>
-                                        <li><a href="#" class="construction-link">Unofficial Map Pack</a> <span
-                                                class="bf-filesize">(6.8mb)</span></li>
-                                        <li><a href="#" class="construction-link">Plane Controls PDF</a> <span
-                                                class="bf-filesize">(0.3mb)</span></li>
-                                        <li><a href="#" class="construction-link">Crosshair Mod</a> <span
-                                                class="bf-filesize">(0.7mb)</span></li>
-                                    </ul>
-
-                                    <h3>CLAN LINKS</h3>
-                                    <ul>
-                                        <li><a href="#" class="construction-link">=WW2= Warriors</a></li>
-                                        <li><a href="#" class="construction-link">[101st] Airborne</a></li>
-                                        <li><a href="#" class="construction-link">{TAC} Tactical Squad</a></li>
-                                        <li><a href="#" class="construction-link">*SS* Strike Squad</a></li>
+                                        <li><span class="bf-new-flash">NEW!</span> Added Stalingrad strategy guide -
+                                            03.10.02</li>
+                                        <li id="link"><span id="first-url-part">https://www.chaostheoryforums.com</span>
+                                            -
+                                            03.07.02</li>
+                                        <li>Fixed broken download links - 03.05.02</li>
                                     </ul>
                                 </div>
 
-                                <div class="bf-blog-content">
-                                    <div class="bf-blog-post">
-                                        <div class="bf-post-title">Mastering the Art of Tank Warfare - El Alamein
-                                            Strategies</div>
-                                        <div class="bf-post-meta">Posted by: Sgt_SteelTiger | March 10, 2002 | Filed
-                                            under: Tactics, Vehicles</div>
+                                <div class="bf-blog-container">
+                                    <div class="bf-sidebar">
+                                        <h3>BATTLEFIELD INFO</h3>
+                                        <ul>
+                                            <li><a href="#" class="construction-link">Patch 1.2 Changes</a></li>
+                                            <li><a href="#" class="construction-link">Class Comparison</a></li>
+                                            <li><a href="#" class="construction-link">Weapons Guide</a></li>
+                                            <li><a href="#" class="construction-link">Complete Map List</a></li>
+                                            <li><a href="#" class="construction-link">Server Browser Help</a></li>
+                                        </ul>
 
-                                        <div class="bf-post-content">
+                                        <h3>TOP DOWNLOADS</h3>
+                                        <ul>
+                                            <li><a href="#" class="construction-link">BF1942 Config Tweaker</a> <span
+                                                    class="bf-filesize">(1.2mb)</span></li>
+                                            <li><a href="#" class="construction-link">Unofficial Map Pack</a> <span
+                                                    class="bf-filesize">(6.8mb)</span></li>
+                                            <li><a href="#" class="construction-link">Plane Controls PDF</a> <span
+                                                    class="bf-filesize">(0.3mb)</span></li>
+                                            <li><a href="#" class="construction-link">Crosshair Mod</a> <span
+                                                    class="bf-filesize">(0.7mb)</span></li>
+                                        </ul>
+
+                                        <h3>CLAN LINKS</h3>
+                                        <ul>
+                                            <li><a href="#" class="construction-link">=WW2= Warriors</a></li>
+                                            <li><a href="#" class="construction-link">[101st] Airborne</a></li>
+                                            <li><a href="#" class="construction-link">{TAC} Tactical Squad</a></li>
+                                            <li><a href="#" class="construction-link">*SS* Strike Squad</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="bf-blog-content">
+                                        <div class="bf-blog-post">
+                                            <div class="bf-post-title">Mastering the Art of Tank Warfare - El Alamein
+                                                Strategies</div>
+                                            <div class="bf-post-meta">Posted by: Sgt_SteelTiger | March 10, 2002 | Filed
+                                                under: Tactics, Vehicles</div>
+
+                                            <div class="bf-post-content">
+                                                <p>Whats up soldiers! After countless hours pwning n00bs on El Alamein,
+                                                    I
+                                                    figured it was time to share some of my elite tank strategies. This
+                                                    desert map is ALL about armor control, and if ur team doesn't know
+                                                    these
+                                                    tricks, prepare to get owned HARD.</p>
+
+                                                <div class="bfimage"><img src="images/bfsc2.png" alt="tank"></div>
+
+                                                <p>First off, forget what everyone keeps saying about rushing the center
+                                                    flag. That's a total deathtrap unless you've got SERIOUS air
+                                                    support.
+                                                    The real pro strat is to form a "crescent" formation with 3-4 tanks
+                                                    along the eastern ridge. From there u can totally dominate the map
+                                                    while
+                                                    staying protected from air attacks.</p>
+
+                                                <p>My clan (=WW2= Warriors) used this last weekend in CAL and totally
+                                                    destroyed the competition. The trick is having a dedicated repair
+                                                    guy
+                                                    for each tank. Some ppl think engineers are useless but they're SO
+                                                    wrong. A good engineer/tank combo is practically UNSTOPPABLE!!</p>
+                                            </div>
+
+                                            <a href="#" class="bf-read-more">READ FULL ARTICLE >></a>
+
+                                            <div class="bf-signature">
+                                                ~ Sgt_SteelTiger<br>
+                                                =WW2= Warriors Clan | Tank Division Captain<br>
+                                                ICQ: 247895633 | <span>K/D: 3.1</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="bf-blog-post">
+                                            <div class="bf-post-title">Road to Rome Expansion Pack - First
+                                                Impressions!!!
+                                            </div>
+                                            <div class="bf-post-meta">Posted by: CommandoJoe | March 8, 2002 | Filed
+                                                under:
+                                                News </div>
+
+
+                                            <div class="bf-post-content">
+                                                <p>OMG DICE just announced the first expansion for BF1942 called "Road
+                                                    to
+                                                    Rome" and it looks AMAZING!!! My cousin works at EB Games and he
+                                                    showed
+                                                    me the press release. We're getting 6 new maps, 8 new vehicles and
+                                                    even
+                                                    the Italian army as a new playable faction!!!</p>
+
+                                                <p>Rumor has it the expansion will drop sometime in early 2003. The
+                                                    coolest
+                                                    part is they're adding the Italian faction with all new weapons and
+                                                    character models. Also Monte Cassino is confirmed as one of the new
+                                                    maps, which was one of the most epic battles of the Italian
+                                                    campaign.
+                                                </p>
+
+                                                <div class="bfimage"><img src="images/ExpansionPack1.jpg"
+                                                        alt="expansion">
+                                                </div>
+
+                                                <p>I'm saving my allowance starting NOW cuz this is gonna be a must-buy
+                                                    for
+                                                    any serious BF player. My prediction is this will totally revive the
+                                                    multiplayer scene which has been getting a bit stale lately with all
+                                                    the
+                                                    CS and Unreal players stealing our servers.</p>
+                                            </div>
+
+                                            <a href="#" class="bf-read-more">READ FULL ARTICLE >></a>
+
+                                            <div class="bf-signature">
+                                                ~ CommandoJoe<br>
+                                                BF Stats: 1337 hours played | K/D: 2.4 | Favorite class: Engineer<br>
+                                                "If you can't dodge it... ram it!" - Midway Island air combat motto
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bf-footer">
+                                    <p>© 2002 BATTLEFIELD 1942 COMMAND CENTER | All BF1942 content is property of
+                                        Digital
+                                        Illusions CE and Electronic Arts</p>
+                                    <p>This site best viewed in Internet Explorer at 800x600 | Webmaster: Sgt_SteelTiger
+                                        |
+                                        Email: bfcommandcenter@rewindmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="website-content battlefield-article">
+                            <div class="bf-container">
+                                <div class="bf-header">
+                                    <h1 class="bf-logo">BATTLEFIELD 1942 COMMAND CENTER</h1>
+                                    <div class="bf-subtitle">Your Tactical HQ for BF1942 Intel since 11.19.02</div>
+                                </div>
+
+                                <div class="bf-nav">
+                                    <table>
+                                        <tr>
+                                            <td><a href="#" class="construction-link">HOME</a></td>
+                                            <td><a href="#" class="construction-link">NEWS</a></td>
+                                            <td><a href="#" class="construction-link">TACTICS</a></td>
+                                            <td><a href="#" class="construction-link">MAPS</a></td>
+                                            <td><a href="#" class="construction-link">MODS</a></td>
+                                            <td><a href="#" class="construction-link">FORUM</a></td>
+                                            <td><a href="#" class="construction-link">LINKS</a></td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="bf-article-container">
+                                    <div class="bf-article-content">
+                                        <div class="bf-article-header">
+                                            <div class="bf-post-title">Mastering the Art of Tank Warfare - El Alamein
+                                                Strategies</div>
+                                            <div class="bf-post-meta">Posted by: Sgt_SteelTiger | March 10, 2002 | Filed
+                                                under: Tactics, Vehicles</div>
+                                        </div>
+
+                                        <div class="bf-article-body">
                                             <p>Whats up soldiers! After countless hours pwning n00bs on El Alamein, I
                                                 figured it was time to share some of my elite tank strategies. This
                                                 desert map is ALL about armor control, and if ur team doesn't know these
@@ -176,576 +309,613 @@
                                                 destroyed the competition. The trick is having a dedicated repair guy
                                                 for each tank. Some ppl think engineers are useless but they're SO
                                                 wrong. A good engineer/tank combo is practically UNSTOPPABLE!!</p>
+
+                                            <h3>ELITE TANK TACTICS FOR EL ALAMEIN</h3>
+
+                                            <p>Here's my step-by-step guide to dominating in tanks on El Alamein:</p>
+
+                                            <ol>
+                                                <li><strong>FORMATION IS KEY</strong> - Always maintain the crescent
+                                                    formation along the eastern ridge. Each tank should be about 50-75m
+                                                    apart with clear lines of sight to the center flags.</li>
+
+                                                <li><strong>ENGINEER SUPPORT</strong> - Every tank MUST have a dedicated
+                                                    engineer. The engineer should stay on the opposite side of the tank
+                                                    from enemy fire and constantly repair.</li>
+
+                                                <li><strong>TARGET PRIORITY</strong> - Always take out enemy tanks
+                                                    first, then planes, then infantry. A good tank crew communicates
+                                                    targets clearly.</li>
+
+                                                <li><strong>RIDGE FIGHTING</strong> - Only expose your turret when
+                                                    firing. Back down behind the ridge while reloading to avoid getting
+                                                    hit.</li>
+
+                                                <li><strong>DEFILADE POSITION</strong> - Learn to use "hull down"
+                                                    positions where only your turret is visible to enemies.</li>
+                                            </ol>
+
+                                            <div class="bfimage"><img src="images/bfsc1.jpg" alt="tank position map">
+                                            </div>
+
+                                            <p>The map above shows the optimal positions for your tank formation. Notice
+                                                how we maintain control of both the center and the eastern flags while
+                                                having perfect sight lines to the enemy spawn.</p>
+
+                                            <h3>COUNTER-TACTICS</h3>
+
+                                            <p>If the enemy team is using the same strategy, here's how to counter it:
+                                            </p>
+
+                                            <ul>
+                                                <li>Use smoke grenades (mod required) to blind their sight lines</li>
+                                                <li>Coordinate bomber runs from multiple directions</li>
+                                                <li>Send infiltration squads of engineers with explosives behind their
+                                                    lines</li>
+                                                <li>Use the western ridge to flank their position with fast-moving Jeeps
+                                                </li>
+                                            </ul>
+
+                                            <p>I've been testing these strategies with my clan for weeks now and our win
+                                                rate on El Alamein has gone from 65% to over 90%! The key is
+                                                COMMUNICATION and COORDINATION. Make sure everyone on your team knows
+                                                their role and sticks to it.</p>
+
+                                            <p>If anyone wants to join us for practice or scrims, we're always looking
+                                                for more skilled players who understand TEAMWORK. Our clan server is up
+                                                24/7 at 216.54.23.78:14567 (password: ww2warriors).</p>
+
+                                            <p>Next week I'll be posting my guide to air superiority on Midway, so check
+                                                back for more elite strats!</p>
                                         </div>
 
-                                        <a href="#" class="bf-read-more">READ FULL ARTICLE >></a>
+                                        <div class="bf-article-comments">
+                                            <h3>COMMENTS:</h3>
+
+                                            <div class="bf-comment">
+                                                <div class="bf-comment-meta">Posted by: CommandoJoe | March 10, 2002 |
+                                                    14:32</div>
+                                                <div class="bf-comment-text">Nice guide SteelTiger! Been using this
+                                                    strat since you showed it to us last month and it works EVERY time.
+                                                    The repair guy is key tho, without him you're toast against good
+                                                    players.</div>
+                                            </div>
+
+                                            <div class="bf-comment">
+                                                <div class="bf-comment-meta">Posted by: {TAC}Sniper42 | March 10, 2002 |
+                                                    15:17</div>
+                                                <div class="bf-comment-text">Kinda cheap strategy tbh. Real skill is in
+                                                    infantry combat, not camping with tanks. Just sayin...</div>
+                                            </div>
+
+                                            <div class="bf-comment">
+                                                <div class="bf-comment-meta">Posted by: Sgt_SteelTiger | March 10, 2002
+                                                    | 15:45</div>
+                                                <div class="bf-comment-text">@{TAC}Sniper42 - It's called TACTICS bro.
+                                                    The game is about WINNING not just running around with a sniper
+                                                    rifle getting headshots. This is why your clan lost to us 3 times
+                                                    last tournament lol!</div>
+                                            </div>
+                                        </div>
 
                                         <div class="bf-signature">
                                             ~ Sgt_SteelTiger<br>
                                             =WW2= Warriors Clan | Tank Division Captain<br>
                                             ICQ: 247895633 | <span>K/D: 3.1</span>
                                         </div>
-                                    </div>
 
-                                    <div class="bf-blog-post">
-                                        <div class="bf-post-title">Road to Rome Expansion Pack - First Impressions!!!
-                                        </div>
-                                        <div class="bf-post-meta">Posted by: CommandoJoe | March 8, 2002 | Filed under:
-                                            News </div>
-
-
-                                        <div class="bf-post-content">
-                                            <p>OMG DICE just announced the first expansion for BF1942 called "Road to
-                                                Rome" and it looks AMAZING!!! My cousin works at EB Games and he showed
-                                                me the press release. We're getting 6 new maps, 8 new vehicles and even
-                                                the Italian army as a new playable faction!!!</p>
-
-                                            <p>Rumor has it the expansion will drop sometime in early 2003. The coolest
-                                                part is they're adding the Italian faction with all new weapons and
-                                                character models. Also Monte Cassino is confirmed as one of the new
-                                                maps, which was one of the most epic battles of the Italian campaign.
-                                            </p>
-
-                                            <div class="bfimage"><img src="images/ExpansionPack1.jpg" alt="expansion">
-                                            </div>
-
-                                            <p>I'm saving my allowance starting NOW cuz this is gonna be a must-buy for
-                                                any serious BF player. My prediction is this will totally revive the
-                                                multiplayer scene which has been getting a bit stale lately with all the
-                                                CS and Unreal players stealing our servers.</p>
-                                        </div>
-
-                                        <a href="#" class="bf-read-more">READ FULL ARTICLE >></a>
-
-                                        <div class="bf-signature">
-                                            ~ CommandoJoe<br>
-                                            BF Stats: 1337 hours played | K/D: 2.4 | Favorite class: Engineer<br>
-                                            "If you can't dodge it... ram it!" - Midway Island air combat motto
+                                        <div class="bf-article-nav">
+                                            <a href="#" id="back-to-home" class="bf-back-button">&lt;&lt; BACK TO
+                                                HOME</a>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
 
-                            <div class="bf-footer">
-                                <p>© 2002 BATTLEFIELD 1942 COMMAND CENTER | All BF1942 content is property of Digital
-                                    Illusions CE and Electronic Arts</p>
-                                <p>This site best viewed in Internet Explorer at 800x600 | Webmaster: Sgt_SteelTiger |
-                                    Email: bfcommandcenter@rewindmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="website-content battlefield-article">
-                        <div class="bf-container">
-                            <div class="bf-header">
-                                <h1 class="bf-logo">BATTLEFIELD 1942 COMMAND CENTER</h1>
-                                <div class="bf-subtitle">Your Tactical HQ for BF1942 Intel since 11.19.02</div>
-                            </div>
-
-                            <div class="bf-nav">
-                                <table>
-                                    <tr>
-                                        <td><a href="#" class="construction-link">HOME</a></td>
-                                        <td><a href="#" class="construction-link">NEWS</a></td>
-                                        <td><a href="#" class="construction-link">TACTICS</a></td>
-                                        <td><a href="#" class="construction-link">MAPS</a></td>
-                                        <td><a href="#" class="construction-link">MODS</a></td>
-                                        <td><a href="#" class="construction-link">FORUM</a></td>
-                                        <td><a href="#" class="construction-link">LINKS</a></td>
-                                    </tr>
-                                </table>
-                            </div>
-
-                            <div class="bf-article-container">
-                                <div class="bf-article-content">
-                                    <div class="bf-article-header">
-                                        <div class="bf-post-title">Mastering the Art of Tank Warfare - El Alamein
-                                            Strategies</div>
-                                        <div class="bf-post-meta">Posted by: Sgt_SteelTiger | March 10, 2002 | Filed
-                                            under: Tactics, Vehicles</div>
-                                    </div>
-
-                                    <div class="bf-article-body">
-                                        <p>Whats up soldiers! After countless hours pwning n00bs on El Alamein, I
-                                            figured it was time to share some of my elite tank strategies. This
-                                            desert map is ALL about armor control, and if ur team doesn't know these
-                                            tricks, prepare to get owned HARD.</p>
-
-                                        <div class="bfimage"><img src="images/bfsc2.png" alt="tank"></div>
-
-                                        <p>First off, forget what everyone keeps saying about rushing the center
-                                            flag. That's a total deathtrap unless you've got SERIOUS air support.
-                                            The real pro strat is to form a "crescent" formation with 3-4 tanks
-                                            along the eastern ridge. From there u can totally dominate the map while
-                                            staying protected from air attacks.</p>
-
-                                        <p>My clan (=WW2= Warriors) used this last weekend in CAL and totally
-                                            destroyed the competition. The trick is having a dedicated repair guy
-                                            for each tank. Some ppl think engineers are useless but they're SO
-                                            wrong. A good engineer/tank combo is practically UNSTOPPABLE!!</p>
-
-                                        <h3>ELITE TANK TACTICS FOR EL ALAMEIN</h3>
-
-                                        <p>Here's my step-by-step guide to dominating in tanks on El Alamein:</p>
-
-                                        <ol>
-                                            <li><strong>FORMATION IS KEY</strong> - Always maintain the crescent
-                                                formation along the eastern ridge. Each tank should be about 50-75m
-                                                apart with clear lines of sight to the center flags.</li>
-
-                                            <li><strong>ENGINEER SUPPORT</strong> - Every tank MUST have a dedicated
-                                                engineer. The engineer should stay on the opposite side of the tank
-                                                from enemy fire and constantly repair.</li>
-
-                                            <li><strong>TARGET PRIORITY</strong> - Always take out enemy tanks
-                                                first, then planes, then infantry. A good tank crew communicates
-                                                targets clearly.</li>
-
-                                            <li><strong>RIDGE FIGHTING</strong> - Only expose your turret when
-                                                firing. Back down behind the ridge while reloading to avoid getting
-                                                hit.</li>
-
-                                            <li><strong>DEFILADE POSITION</strong> - Learn to use "hull down"
-                                                positions where only your turret is visible to enemies.</li>
-                                        </ol>
-
-                                        <div class="bfimage"><img src="images/bfsc1.jpg" alt="tank position map">
-                                        </div>
-
-                                        <p>The map above shows the optimal positions for your tank formation. Notice
-                                            how we maintain control of both the center and the eastern flags while
-                                            having perfect sight lines to the enemy spawn.</p>
-
-                                        <h3>COUNTER-TACTICS</h3>
-
-                                        <p>If the enemy team is using the same strategy, here's how to counter it:
-                                        </p>
-
+                                    <div class="bf-sidebar">
+                                        <h3>BATTLEFIELD INFO</h3>
                                         <ul>
-                                            <li>Use smoke grenades (mod required) to blind their sight lines</li>
-                                            <li>Coordinate bomber runs from multiple directions</li>
-                                            <li>Send infiltration squads of engineers with explosives behind their
-                                                lines</li>
-                                            <li>Use the western ridge to flank their position with fast-moving Jeeps
-                                            </li>
+                                            <li><a href="#" class="construction-link">Patch 1.2 Changes</a></li>
+                                            <li><a href="#" class="construction-link">Class Comparison</a></li>
+                                            <li><a href="#" class="construction-link">Weapons Guide</a></li>
+                                            <li><a href="#" class="construction-link">Complete Map List</a></li>
+                                            <li><a href="#" class="construction-link">Server Browser Help</a></li>
                                         </ul>
 
-                                        <p>I've been testing these strategies with my clan for weeks now and our win
-                                            rate on El Alamein has gone from 65% to over 90%! The key is
-                                            COMMUNICATION and COORDINATION. Make sure everyone on your team knows
-                                            their role and sticks to it.</p>
+                                        <h3>TOP DOWNLOADS</h3>
+                                        <ul>
+                                            <li><a href="#" class="construction-link">BF1942 Config Tweaker</a> <span
+                                                    class="bf-filesize">(1.2mb)</span>
+                                            </li>
+                                            <li><a href="#" class="construction-link">Unofficial Map Pack</a> <span
+                                                    class="bf-filesize">(6.8mb)</span></li>
+                                            <li><a href="#" class="construction-link">Plane Controls PDF</a> <span
+                                                    class="bf-filesize">(0.3mb)</span></li>
+                                            <li><a href="#" class="construction-link">Crosshair Mod</a> <span
+                                                    class="bf-filesize">(0.7mb)</span></li>
+                                        </ul>
 
-                                        <p>If anyone wants to join us for practice or scrims, we're always looking
-                                            for more skilled players who understand TEAMWORK. Our clan server is up
-                                            24/7 at 216.54.23.78:14567 (password: ww2warriors).</p>
-
-                                        <p>Next week I'll be posting my guide to air superiority on Midway, so check
-                                            back for more elite strats!</p>
-                                    </div>
-
-                                    <div class="bf-article-comments">
-                                        <h3>COMMENTS:</h3>
-
-                                        <div class="bf-comment">
-                                            <div class="bf-comment-meta">Posted by: CommandoJoe | March 10, 2002 |
-                                                14:32</div>
-                                            <div class="bf-comment-text">Nice guide SteelTiger! Been using this
-                                                strat since you showed it to us last month and it works EVERY time.
-                                                The repair guy is key tho, without him you're toast against good
-                                                players.</div>
-                                        </div>
-
-                                        <div class="bf-comment">
-                                            <div class="bf-comment-meta">Posted by: {TAC}Sniper42 | March 10, 2002 |
-                                                15:17</div>
-                                            <div class="bf-comment-text">Kinda cheap strategy tbh. Real skill is in
-                                                infantry combat, not camping with tanks. Just sayin...</div>
-                                        </div>
-
-                                        <div class="bf-comment">
-                                            <div class="bf-comment-meta">Posted by: Sgt_SteelTiger | March 10, 2002
-                                                | 15:45</div>
-                                            <div class="bf-comment-text">@{TAC}Sniper42 - It's called TACTICS bro.
-                                                The game is about WINNING not just running around with a sniper
-                                                rifle getting headshots. This is why your clan lost to us 3 times
-                                                last tournament lol!</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="bf-signature">
-                                        ~ Sgt_SteelTiger<br>
-                                        =WW2= Warriors Clan | Tank Division Captain<br>
-                                        ICQ: 247895633 | <span>K/D: 3.1</span>
-                                    </div>
-
-                                    <div class="bf-article-nav">
-                                        <a href="#" id="back-to-home" class="bf-back-button">&lt;&lt; BACK TO HOME</a>
+                                        <h3>RELATED ARTICLES</h3>
+                                        <ul>
+                                            <li><a href="#" class="construction-link">Tank vs. Tank Combat Guide</a>
+                                            </li>
+                                            <li><a href="#" class="construction-link">Desert Combat Mod Preview</a></li>
+                                            <li><a href="#" class="construction-link">Anti-Tank Infantry Tactics</a>
+                                            </li>
+                                            <li><a href="#" class="construction-link">Battlefield Server Setup</a></li>
+                                        </ul>
                                     </div>
                                 </div>
 
-                                <div class="bf-sidebar">
-                                    <h3>BATTLEFIELD INFO</h3>
-                                    <ul>
-                                        <li><a href="#" class="construction-link">Patch 1.2 Changes</a></li>
-                                        <li><a href="#" class="construction-link">Class Comparison</a></li>
-                                        <li><a href="#" class="construction-link">Weapons Guide</a></li>
-                                        <li><a href="#" class="construction-link">Complete Map List</a></li>
-                                        <li><a href="#" class="construction-link">Server Browser Help</a></li>
-                                    </ul>
-
-                                    <h3>TOP DOWNLOADS</h3>
-                                    <ul>
-                                        <li><a href="#" class="construction-link">BF1942 Config Tweaker</a> <span
-                                                class="bf-filesize">(1.2mb)</span>
-                                        </li>
-                                        <li><a href="#" class="construction-link">Unofficial Map Pack</a> <span
-                                                class="bf-filesize">(6.8mb)</span></li>
-                                        <li><a href="#" class="construction-link">Plane Controls PDF</a> <span
-                                                class="bf-filesize">(0.3mb)</span></li>
-                                        <li><a href="#" class="construction-link">Crosshair Mod</a> <span
-                                                class="bf-filesize">(0.7mb)</span></li>
-                                    </ul>
-
-                                    <h3>RELATED ARTICLES</h3>
-                                    <ul>
-                                        <li><a href="#" class="construction-link">Tank vs. Tank Combat Guide</a></li>
-                                        <li><a href="#" class="construction-link">Desert Combat Mod Preview</a></li>
-                                        <li><a href="#" class="construction-link">Anti-Tank Infantry Tactics</a></li>
-                                        <li><a href="#" class="construction-link">Battlefield Server Setup</a></li>
-                                    </ul>
+                                <div class="bf-footer">
+                                    <p>© 2002 BATTLEFIELD 1942 COMMAND CENTER | All BF1942 content is property of
+                                        Digital Illusions CE and Electronic Arts</p>
+                                    <p>This site best viewed in Internet Explorer at 800x600 | Webmaster: Sgt_SteelTiger
+                                        | Email: bfcommandcenter@rewindmail.com</p>
                                 </div>
-                            </div>
-
-                            <div class="bf-footer">
-                                <p>© 2002 BATTLEFIELD 1942 COMMAND CENTER | All BF1942 content is property of
-                                    Digital Illusions CE and Electronic Arts</p>
-                                <p>This site best viewed in Internet Explorer at 800x600 | Webmaster: Sgt_SteelTiger
-                                    | Email: bfcommandcenter@rewindmail.com</p>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Second website: ChaosTheoryForums.com-->
-                    <div class="website-content ChaosTheoryForum">
-                        <div class="ChaosTheoryForumPage">
-                        </div>
-                        <div id="chaos-main-page" class="chaos-container">
-                        <div class="chaos-container">
-                            <div class="chaos-header">
-                                <div class="chaos-logo">CHAOS <span>THEORY</span> FORUMS</div>
-                                <div class="chaos-subtitle">The Premier Jurassic Park & Dinosaur Community Since 1997</div>
+                        <!-- Second website: ChaosTheoryForums.com-->
+                        <div class="website-content ChaosTheoryForum">
+                            <div class="ChaosTheoryForumPage">
                             </div>
-                            
-                            <div class="chaos-nav">
-                                <a href="#" class="construction-link">HOME</a>
-                                <a href="#" class="construction-link">FORUMS</a>
-                                <a href="#" class="construction-link">MEMBERS</a>
-                                <a href="#" class="construction-link">GALLERY</a>
-                                <a href="#" class="construction-link">ARTICLES</a>
-                                <a href="#" class="chaos-conspiracy-link">CONSPIRACY THEORIES</a>
-                                <a href="#" class="construction-link">CONTACT</a>
-                            </div>
-                            
-                            <div class="chaos-content">
-                                <div class="chaos-main">
-                                    <div class="chaos-welcome">
-                                        <h2>Welcome to Chaos Theory Forums!</h2>
-                                        <p>The internet's leading community for Jurassic Park fans and dinosaur enthusiasts. Join over 15,000 members discussing the films, books, games, and real paleontology.</p>
-                                        <p><strong>NEW!</strong> The Lost World: Site B section is now open! Also check out our exclusive interview with Stan Winston Studios!</p>
+                            <div id="chaos-main-page" class="chaos-container">
+                                <div class="chaos-container">
+                                    <div class="chaos-header">
+                                        <div class="chaos-logo">CHAOS <span>THEORY</span> FORUMS</div>
+                                        <div class="chaos-subtitle">The Premier Jurassic Park & Dinosaur Community Since
+                                            1997</div>
                                     </div>
-                                    
-                                    <div class="chaos-forum-category">
-                                        <div class="chaos-category-header">JURASSIC PARK FILMS & MEDIA</div>
-                                        <table class="chaos-forum-table">
-                                            <tr>
-                                                <th width="50%">Forum</th>
-                                                <th>Topics</th>
-                                                <th>Posts</th>
-                                                <th>Last Post</th>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="chaos-forum-name"><a href="#" class="construction-link">Jurassic Park (1993)</a></div>
-                                                    <div class="chaos-forum-description">Discuss the original film that started it all</div>
-                                                </td>
-                                                <td class="chaos-stats">2,356</td>
-                                                <td class="chaos-stats">31,784</td>
-                                                <td class="chaos-last-post">By <a href="#" class="construction-link">RaptorKeeper</a><br>Today, 10:23 AM</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="chaos-forum-name"><a href="#" class="construction-link">The Lost World: Jurassic Park</a></div>
-                                                    <div class="chaos-forum-description">The 1997 sequel and all things Site B related</div>
-                                                </td>
-                                                <td class="chaos-stats">1,458</td>
-                                                <td class="chaos-stats">18,965</td>
-                                                <td class="chaos-last-post">By <a href="#" class="construction-link">SpinoDude42</a><br>Yesterday, 11:51 PM</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="chaos-forum-name"><a href="#" class="construction-link">Jurassic Park III</a></div>
-                                                    <div class="chaos-forum-description">Discussion of the 2001 film and Isla Sorna return</div>
-                                                </td>
-                                                <td class="chaos-stats">1,122</td>
-                                                <td class="chaos-stats">17,342</td>
-                                                <td class="chaos-last-post">By <a href="#" class="construction-link">DinoTracker</a><br>March 5, 2002</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    
-                                    <div class="chaos-forum-category">
-                                        <div class="chaos-category-header">SCIENCE & SPECULATION</div>
-                                        <table class="chaos-forum-table">
-                                            <tr>
-                                                <th width="50%">Forum</th>
-                                                <th>Topics</th>
-                                                <th>Posts</th>
-                                                <th>Last Post</th>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="chaos-forum-name"><a href="#" class="construction-link">Paleontology & Dinosaur Science</a></div>
-                                                    <div class="chaos-forum-description">Real-world dinosaur research and discoveries</div>
-                                                </td>
-                                                <td class="chaos-stats">1,245</td>
-                                                <td class="chaos-stats">19,873</td>
-                                                <td class="chaos-last-post">By <a href="#" class="construction-link">FossilHunter</a><br>Today, 08:45 AM</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="chaos-forum-name"><a href="#" class="construction-link">Genetics & Cloning Ethics</a></div>
-                                                    <div class="chaos-forum-description">Discuss the real science behind fictional scenarios</div>
-                                                </td>
-                                                <td class="chaos-stats">687</td>
-                                                <td class="chaos-stats">12,985</td>
-                                                <td class="chaos-last-post">By <a href="#" class="construction-link">DNAextractor</a><br>March 6, 2002</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="chaos-forum-name"><a href="#" class="chaos-conspiracy-link">InGen Conspiracy Theories</a></div>
-                                                    <div class="chaos-forum-description">Speculation about surviving dinosaurs and cover-ups</div>
-                                                </td>
-                                                <td class="chaos-stats">529</td>
-                                                <td class="chaos-stats">8,764</td>
-                                                <td class="chaos-last-post">By <a href="#" class="construction-link">NedryLives</a><br>March 1, 2002</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                                
-                                <div class="chaos-sidebar">
-                                    <h3>LOGIN</h3>
-                                    <form>
-                                        Username:<br>
-                                        <input type="text" style="width:95%;"><br>
-                                        Password:<br>
-                                        <input type="password" style="width:95%;"><br>
-                                        <input type="checkbox"> Remember me<br>
-                                        <input type="submit" value="Login" style="margin-top:5px;">
-                                    </form>
-                                    
-                                    <h3>ONLINE NOW</h3>
-                                    <div style="font-size:10px;">
-                                        <b>Members (15):</b> RaptorKeeper, SpinoDude42, TRexGirl, FossilHunter, DinoTracker, DrMalcolm, DNAextractor, NedryLives, CompyLover, InGenFan88, DennisN3dryFan, <a href="#" class="chaos-hidden-link">JohnHammond</a>, EmbryoStealer, DinoVet, AmberCollector
-                                    </div>
-                                    
-                                    <h3>FEATURED LINKS</h3>
-                                    <ul>
-                                        <li><a href="#" class="construction-link">Official Jurassic Park Website</a></li>
-                                        <li><a href="#" class="construction-link">Dinosaur Database Project</a></li>
-                                        <li><a href="#" class="construction-link">JP Legacy Fan Site</a></li>
-                                        <li><a href="#" class="construction-link">Stan Winston Studios</a></li>
-                                        <li><a href="#" class="construction-link">BioSyn Corporate Portal</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="chaos-footer">
-                                Copyright © 2002 ChaosTheoryForums.com | All rights reserved | <a href="#" class="construction-link">Privacy Policy</a> | <a href="#" class="construction-link">Terms of Service</a><br>
-                                Jurassic Park™ and all related marks are registered trademarks of Universal Studios and Amblin Entertainment, Inc.
-                            </div>
-                        </div>
-                                                </div>
-                                                <div id="chaos-conspiracy-page" class="chaos-container" style="display:none;">
-<div class="chaos-container">
-    <div class="chaos-header">
-        <div class="chaos-logo">CHAOS <span>THEORY</span> FORUMS</div>
-        <div class="chaos-subtitle">The Premier Jurassic Park & Dinosaur Community Since 1997</div>
-    </div>
-    
-    <div class="chaos-nav">
-        <a href="#chaos-home" class="chaos-home-link">HOME</a>
-        <a href="#" class="construction-link">FORUMS</a>
-        <a href="#" class="construction-link">MEMBERS</a>
-        <a href="#" class="construction-link">GALLERY</a>
-        <a href="#" class="construction-link">ARTICLES</a>
-        <a href="#" class="construction-link">FAQ</a>
-        <a href="#" class="construction-link">CONTACT</a>
-    </div>
-    
-    <div class="chaos-content">
-        <div class="chaos-main">
-            <div class="chaos-breadcrumb">
-                <a href="#chaos-home" class="chaos-home-link">Home</a> &raquo; 
-                <a href="#" class="construction-link">Forums</a> &raquo; 
-                <a href="#" class="construction-link">Science & Speculation</a> &raquo; 
-                InGen Conspiracy Theories
-            </div>
-            
-            <div class="chaos-thread-page">
-                <div class="chaos-topic-title">The "Witch" Project - Government Cover-up Theory</div>
-                <div class="chaos-topic-info">
-                    Started by DinoSpy, Feb 15, 2002, 03:21 PM • 87 Replies • 976 Views
-                </div>
-                
-                <div class="chaos-post">
-                    <div class="chaos-post-header">
-                        <div class="chaos-post-author">DinoSpy</div>
-                        <div class="chaos-post-date">Feb 15, 2002, 03:21 PM</div>
-                    </div>
-                    <div class="chaos-post-content">
-                        <p>Hey everyone! I've been researching the San Diego incident and I think I've uncovered something huge. There's a secret project within the government called "Witch" that's dedicated to covering up the existence of surviving dinosaurs.</p>
-                        
-                        <p>My cousin works for a biotech company that had dealings with InGen, and he told me that the whole "gas leak" story in San Diego was fabricated. They're actively hunting and containing escaped specimens!</p>
-                        
-                        <p>Think about it - why would the government spend so much money buying those islands and restricting air space around them if there was nothing to hide? They're containing a biohazard!</p>
-                        
-                        <p>I've been collecting news reports of unexplained animal attacks in Costa Rica that mysteriously disappeared from the news cycles. Too many coincidences!</p>
-                        
-                        <p>I'm going to compile all my evidence into a document and share it here. Stay tuned!</p>
-                    </div>
-                    <div class="chaos-user-info">
-                        Posts: 342 | Joined: Jan 2000 | Location: San Diego
-                    </div>
-                </div>
-                
-                <div class="chaos-post">
-                    <div class="chaos-post-header">
-                        <div class="chaos-post-author">NedryLives</div>
-                        <div class="chaos-post-date">Feb 16, 2002, 09:46 AM</div>
-                    </div>
-                    <div class="chaos-post-content">
-                        <p>DinoSpy, I've been tracking similar stories for years. The pattern of disappearances and unusual animal sightings around Costa Rica began immediately after the "incident" at the original park site.</p>
-                        
-                        <p>I have a friend who worked security for InGen back in the day. He won't talk much, but he did mention something called "Project Witch" that was designed to "hunt and contain" something. The code name comes from "Hunt The Witch" - apparently a reference to some internal InGen joke about a scientist who warned about the dangers of their work.</p>
-                        <p>The website they're using for the project is <a href="https://www.HuntTheWitch.com" class="chaos-secret-text">https://www.HuntTheWitch.com</a> - it's heavily secured but I'm working on finding a way in.</p>
-                        
-                        
-                        <p>Anyone else having trouble sleeping after reading about those "unexplained attacks" in the Costa Rican tourism areas? Those descriptions don't match any known predator...</p>
-                    </div>
-                    <div class="chaos-user-info">
-                        Posts: 763 | Joined: Dec 1999 | Location: Seattle, WA
-                    </div>
-                </div>
-                
-                <div class="chaos-post">
-                    <div class="chaos-post-header">
-                        <div class="chaos-post-author">DrMalcolm</div>
-                        <div class="chaos-post-date">Feb 16, 2002, 11:12 AM</div>
-                    </div>
-                    <div class="chaos-post-content">
-                        <p>*Sigh* Here we go again with the conspiracy theories. People, please apply some critical thinking.</p>
-                        
-                        <p>The "gas leak" story was not fabricated. There WAS a major industrial accident in San Diego, and the distortion of facts through rumors and panic created these wild stories about dinosaurs roaming the streets.</p>
-                        
-                        <p>As for Costa Rican "animal attacks," the region has jaguars, caimans, and numerous venomous snakes. There's no need to invoke escaped prehistoric creatures to explain wildlife encounters in a jungle environment.</p>
-                        
-                        <p>This kind of baseless speculation does nothing but create panic and distract from real scientific work. Let's focus on actual paleontology rather than tabloid-level conspiracy theories.</p>
-                    </div>
-                    <div class="chaos-user-info">
-                        Posts: 1,473 | Joined: Oct 1997 | Location: Austin, TX
-                    </div>
-                </div>
-                
-                <div class="chaos-post">
-                    <div class="chaos-post-header">
-                        <div class="chaos-post-author">DinoSpy</div>
-                        <div class="chaos-post-date">Feb 17, 2002, 01:22 AM</div>
-                    </div>
-                    <div class="chaos-post-content">
-                        <p>NedryLives - That website is EXACTLY what I've been looking for! When I tried to access it, I got a login screen. Anyone know how to get past that?</p>
-                        
-                        <p>DrMalcolm - Interesting that you're so quick to dismiss this. Your username is a strange choice for someone who claims to be all about "real science" and dismisses the InGen connection. Hitting a nerve, perhaps?</p>
-                        
-                        <p>I'll keep digging into the HuntTheWitch connection. Something big is hiding in plain sight.</p>
-                    </div>
-                    <div class="chaos-user-info">
-                        Posts: 342 | Joined: Jan 2000 | Location: San Diego
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="chaos-sidebar">
-            <h3>SEARCH</h3>
-            <form>
-                <input type="text" style="width:95%;">
-                <input type="submit" value="Search" style="margin-top:5px;">
-            </form>
-            
-            <h3>HOT TOPICS</h3>
-            <ul>
-                <li><a href="#" class="construction-link">Unexplained Animal Attacks in Costa Rica</a></li>
-                <li><a href="#" class="construction-link">San Diego Incident - Eyewitness Accounts</a></li>
-                <li><a href="#" class="construction-link">InGen's Secret Research Facilities</a></li>
-                <li><a href="#" class="construction-link">The Mysterious Isla Sorna</a></li>
-            </ul>
-            
-            <h3>RELATED LINKS</h3>
-            <ul>
-                <li><a href="#" class="construction-link">Cryptozoology Network</a></li>
-                <li><a href="#" class="construction-link">Costa Rican Tourism Board</a></li>
-                <li><a href="#" class="construction-link">San Diego Tribune Archives</a></li>
-                <li><a href="#" class="construction-link">BioSyn Corporate Portal</a></li>
-                <li><a href="https://www.HuntTheWitch.com" class="chaos-hidden-link">Project Witch Files</a></li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="chaos-footer">
-        Copyright © 2002 ChaosTheoryForums.com | All rights reserved | <a href="#" class="construction-link">Privacy Policy</a> | <a href="#" class="construction-link">Terms of Service</a><br>
-        Jurassic Park™ and all related marks are registered trademarks of Universal Studios and Amblin Entertainment, Inc.
-    </div>
-</div>
-                                                </div>
 
+                                    <div class="chaos-nav">
+                                        <a href="#" class="construction-link">HOME</a>
+                                        <a href="#" class="construction-link">FORUMS</a>
+                                        <a href="#" class="construction-link">MEMBERS</a>
+                                        <a href="#" class="construction-link">GALLERY</a>
+                                        <a href="#" class="construction-link">ARTICLES</a>
+                                        <a href="#" class="chaos-conspiracy-link">CONSPIRACY THEORIES</a>
+                                        <a href="#" class="construction-link">CONTACT</a>
+                                    </div>
+
+                                    <div class="chaos-content">
+                                        <div class="chaos-main">
+                                            <div class="chaos-welcome">
+                                                <h2>Welcome to Chaos Theory Forums!</h2>
+                                                <p>The internet's leading community for Jurassic Park fans and dinosaur
+                                                    enthusiasts. Join over 15,000 members discussing the films, books,
+                                                    games, and real paleontology.</p>
+                                                <p><strong>NEW!</strong> The Lost World: Site B section is now open!
+                                                    Also
+                                                    check out our exclusive interview with Stan Winston Studios!</p>
                                             </div>
 
-                    <!-- Third website: nextest-challenge.com -->
-                    <div class="website-content nextest-challenge-content">
-                        <div class="nextest-challenge-page">
-                            <h2>Final Challenge</h2>
-                            <p>Secret code: <span class="secret-code">WINDOWS_XP_FOREVER</span></p>
-                            <p>The hidden URL is: <span class="secret-url">https://www.final-challenge.com/1213</span>
-                            </p>
-                        </div>
-                    </div>
+                                            <div class="chaos-forum-category">
+                                                <div class="chaos-category-header">JURASSIC PARK FILMS & MEDIA</div>
+                                                <table class="chaos-forum-table">
+                                                    <tr>
+                                                        <th width="50%">Forum</th>
+                                                        <th>Topics</th>
+                                                        <th>Posts</th>
+                                                        <th>Last Post</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="chaos-forum-name"><a href="#"
+                                                                    class="construction-link">Jurassic Park (1993)</a>
+                                                            </div>
+                                                            <div class="chaos-forum-description">Discuss the original
+                                                                film
+                                                                that started it all</div>
+                                                        </td>
+                                                        <td class="chaos-stats">2,356</td>
+                                                        <td class="chaos-stats">31,784</td>
+                                                        <td class="chaos-last-post">By <a href="#"
+                                                                class="construction-link">RaptorKeeper</a><br>Today,
+                                                            10:23
+                                                            AM</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="chaos-forum-name"><a href="#"
+                                                                    class="construction-link">Point and click: Welcome
+                                                                    to
+                                                                    Jurassic Park</a></div>
+                                                            <div class="chaos-forum-description">My friend made this
+                                                                really
+                                                                cool game inspired by JP.</div>
+                                                        </td>
+                                                        <td class="chaos-stats">1,458</td>
+                                                        <td class="chaos-stats">18,965</td>
+                                                        <td class="chaos-last-post">By <a href="#"
+                                                                class="construction-link">SpinoDude42</a><br>Yesterday,
+                                                            11:51 PM</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="chaos-forum-name"><a href="#"
+                                                                    class="construction-link">Jurassic Park III</a>
+                                                            </div>
+                                                            <div class="chaos-forum-description">Discussion of the 2001
+                                                                film
+                                                                and Isla Sorna return</div>
+                                                        </td>
+                                                        <td class="chaos-stats">1,122</td>
+                                                        <td class="chaos-stats">17,342</td>
+                                                        <td class="chaos-last-post">By <a href="#"
+                                                                class="construction-link">DinoTracker</a><br>March 5,
+                                                            2002
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
 
-                    <!-- Final Website: Password -->
-                    <div class="website-content final-challenge-content">
-                        <div class="final-challenge-page">
-                            <h2>Password please</h2>
-                        </div>
-                    </div>
+                                            <div class="chaos-forum-category">
+                                                <div class="chaos-category-header">SCIENCE & SPECULATION</div>
+                                                <table class="chaos-forum-table">
+                                                    <tr>
+                                                        <th width="50%">Forum</th>
+                                                        <th>Topics</th>
+                                                        <th>Posts</th>
+                                                        <th>Last Post</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="chaos-forum-name"><a href="#"
+                                                                    class="construction-link">Paleontology & Dinosaur
+                                                                    Science</a></div>
+                                                            <div class="chaos-forum-description">Real-world dinosaur
+                                                                research and discoveries</div>
+                                                        </td>
+                                                        <td class="chaos-stats">1,245</td>
+                                                        <td class="chaos-stats">19,873</td>
+                                                        <td class="chaos-last-post">By <a href="#"
+                                                                class="construction-link">FossilHunter</a><br>Today,
+                                                            08:45
+                                                            AM</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="chaos-forum-name"><a href="#"
+                                                                    class="construction-link">Genetics & Cloning
+                                                                    Ethics</a>
+                                                            </div>
+                                                            <div class="chaos-forum-description">Discuss the real
+                                                                science
+                                                                behind fictional scenarios</div>
+                                                        </td>
+                                                        <td class="chaos-stats">687</td>
+                                                        <td class="chaos-stats">12,985</td>
+                                                        <td class="chaos-last-post">By <a href="#"
+                                                                class="construction-link">DNAextractor</a><br>March 6,
+                                                            2002
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="chaos-forum-name"><a href="#"
+                                                                    class="chaos-conspiracy-link">InGen Conspiracy
+                                                                    Theories</a></div>
+                                                            <div class="chaos-forum-description">Speculation about
+                                                                surviving
+                                                                dinosaurs and cover-ups</div>
+                                                        </td>
+                                                        <td class="chaos-stats">529</td>
+                                                        <td class="chaos-stats">8,764</td>
+                                                        <td class="chaos-last-post">By <a href="#"
+                                                                class="construction-link">NedryLives</a><br>March 1,
+                                                            2002
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
 
-                    <!-- Not found page -->
-                    <div class="website-content not-found-content">
-                        <div class="browser-error">
-                            <h2>404 - Page Not Found</h2>
-                            <p>The requested URL was not found on this server.</p>
+                                        <div class="chaos-sidebar">
+                                            <h3>LOGIN</h3>
+                                            <form>
+                                                Username:<br>
+                                                <input type="text" style="width:95%;"><br>
+                                                Password:<br>
+                                                <input type="password" style="width:95%;"><br>
+                                                <input type="checkbox"> Remember me<br>
+                                                <input type="submit" value="Login" style="margin-top:5px;">
+                                            </form>
+
+                                            <h3>ONLINE NOW</h3>
+                                            <div style="font-size:10px;">
+                                                <b>Members (15):</b> RaptorKeeper, SpinoDude42, TRexGirl, FossilHunter,
+                                                DinoTracker, DrMalcolm, DNAextractor, NedryLives, CompyLover,
+                                                InGenFan88,
+                                                DennisN3dryFan, <a href="#" class="chaos-hidden-link">JohnHammond</a>,
+                                                EmbryoStealer, DinoVet, AmberCollector
+                                            </div>
+
+                                            <h3>FEATURED LINKS</h3>
+                                            <ul>
+                                                <li><a href="#" class="construction-link">Official Jurassic Park
+                                                        Website</a>
+                                                </li>
+                                                <li><a href="#" class="construction-link">Dinosaur Database Project</a>
+                                                </li>
+                                                <li><a href="#" class="construction-link">JP Legacy Fan Site</a></li>
+                                                <li><a href="#" class="construction-link">Stan Winston Studios</a></li>
+                                                <li><a href="#" class="construction-link">BioSyn Corporate Portal</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="chaos-footer">
+                                        Copyright © 2002 ChaosTheoryForums.com | All rights reserved | <a href="#"
+                                            class="construction-link">Privacy Policy</a> | <a href="#"
+                                            class="construction-link">Terms of Service</a><br>
+                                        Jurassic Park™ and all related marks are registered trademarks of Universal
+                                        Studios
+                                        and Amblin Entertainment, Inc.
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="chaos-conspiracy-page" class="chaos-container" style="display:none;">
+                                <div class="chaos-container">
+                                    <div class="chaos-header">
+                                        <div class="chaos-logo">CHAOS <span>THEORY</span> FORUMS</div>
+                                        <div class="chaos-subtitle">The Premier Jurassic Park & Dinosaur Community Since
+                                            1997</div>
+                                    </div>
+
+                                    <div class="chaos-nav">
+                                        <a href="#chaos-home" class="chaos-home-link">HOME</a>
+                                        <a href="#" class="construction-link">FORUMS</a>
+                                        <a href="#" class="construction-link">MEMBERS</a>
+                                        <a href="#" class="construction-link">GALLERY</a>
+                                        <a href="#" class="construction-link">ARTICLES</a>
+                                        <a href="#" class="construction-link">FAQ</a>
+                                        <a href="#" class="construction-link">CONTACT</a>
+                                    </div>
+
+                                    <div class="chaos-content">
+                                        <div class="chaos-main">
+                                            <div class="chaos-breadcrumb">
+                                                <a href="#chaos-home" class="chaos-home-link">Home</a> &raquo;
+                                                <a href="#" class="construction-link">Forums</a> &raquo;
+                                                <a href="#" class="construction-link">Science & Speculation</a> &raquo;
+                                                InGen Conspiracy Theories
+                                            </div>
+
+                                            <div class="chaos-thread-page">
+                                                <div class="chaos-topic-title">The "Witch" Project - Government Cover-up
+                                                    Theory</div>
+                                                <div class="chaos-topic-info">
+                                                    Started by DinoSpy, Feb 15, 2002, 03:21 PM • 87 Replies • 976 Views
+                                                </div>
+
+                                                <div class="chaos-post">
+                                                    <div class="chaos-post-header">
+                                                        <div class="chaos-post-author">DinoSpy</div>
+                                                        <div class="chaos-post-date">Feb 15, 2002, 03:21 PM</div>
+                                                    </div>
+                                                    <div class="chaos-post-content">
+                                                        <p>Hey everyone! I've been researching the San Diego incident
+                                                            and I
+                                                            think I've uncovered something huge. There's a secret
+                                                            project
+                                                            within the government called "Witch" that's dedicated to
+                                                            covering up the existence of surviving dinosaurs.</p>
+
+                                                        <p>My cousin works for a biotech company that had dealings with
+                                                            InGen, and he told me that the whole "gas leak" story in San
+                                                            Diego was fabricated. They're actively hunting and
+                                                            containing
+                                                            escaped specimens!</p>
+
+                                                        <p>Think about it - why would the government spend so much money
+                                                            buying those islands and restricting air space around them
+                                                            if
+                                                            there was nothing to hide? They're containing a biohazard!
+                                                        </p>
+
+                                                        <p>I've been collecting news reports of unexplained animal
+                                                            attacks
+                                                            in Costa Rica that mysteriously disappeared from the news
+                                                            cycles. Too many coincidences!</p>
+
+                                                        <p>I'm going to compile all my evidence into a document and
+                                                            share it
+                                                            here. Stay tuned!</p>
+                                                    </div>
+                                                    <div class="chaos-user-info">
+                                                        Posts: 342 | Joined: Jan 2000 | Location: San Diego
+                                                    </div>
+                                                </div>
+
+                                                <div class="chaos-post">
+                                                    <div class="chaos-post-header">
+                                                        <div class="chaos-post-author">NedryLives</div>
+                                                        <div class="chaos-post-date">Feb 16, 2002, 09:46 AM</div>
+                                                    </div>
+                                                    <div class="chaos-post-content">
+                                                        <p>DinoSpy, I've been tracking similar stories for years. The
+                                                            pattern of disappearances and unusual animal sightings
+                                                            around
+                                                            Costa Rica began immediately after the "incident" at the
+                                                            original park site.</p>
+
+                                                        <p>I have a friend who worked security for InGen back in the
+                                                            day. He
+                                                            won't talk much, but he did mention something called
+                                                            "Project
+                                                            Witch" that was designed to "hunt and contain" something.
+                                                            The
+                                                            code name comes from "Hunt The Witch" - apparently a
+                                                            reference
+                                                            to some internal InGen joke about a scientist who warned
+                                                            about
+                                                            the dangers of their work.</p>
+                                                        <p>The website they're using for the project is <a
+                                                                class="chaos-secret-text">https://www.HuntTheWitch.com</a>
+                                                            -
+                                                            it's heavily secured but I'm working on finding a way in.
+                                                        </p>
+
+
+                                                        <p>Anyone else having trouble sleeping after reading about those
+                                                            "unexplained attacks" in the Costa Rican tourism areas?
+                                                            Those
+                                                            descriptions don't match any known predator...</p>
+                                                    </div>
+                                                    <div class="chaos-user-info">
+                                                        Posts: 763 | Joined: Dec 1999 | Location: Seattle, WA
+                                                    </div>
+                                                </div>
+
+                                                <div class="chaos-post">
+                                                    <div class="chaos-post-header">
+                                                        <div class="chaos-post-author">DrMalcolm</div>
+                                                        <div class="chaos-post-date">Feb 16, 2002, 11:12 AM</div>
+                                                    </div>
+                                                    <div class="chaos-post-content">
+                                                        <p>*Sigh* Here we go again with the conspiracy theories. People,
+                                                            please apply some critical thinking.</p>
+
+                                                        <p>The "gas leak" story was not fabricated. There WAS a major
+                                                            industrial accident in San Diego, and the distortion of
+                                                            facts
+                                                            through rumors and panic created these wild stories about
+                                                            dinosaurs roaming the streets.</p>
+
+                                                        <p>As for Costa Rican "animal attacks," the region has jaguars,
+                                                            caimans, and numerous venomous snakes. There's no need to
+                                                            invoke
+                                                            escaped prehistoric creatures to explain wildlife encounters
+                                                            in
+                                                            a jungle environment.</p>
+
+                                                        <p>This kind of baseless speculation does nothing but create
+                                                            panic
+                                                            and distract from real scientific work. Let's focus on
+                                                            actual
+                                                            paleontology rather than tabloid-level conspiracy theories.
+                                                        </p>
+                                                    </div>
+                                                    <div class="chaos-user-info">
+                                                        Posts: 1,473 | Joined: Oct 1997 | Location: Austin, TX
+                                                    </div>
+                                                </div>
+
+                                                <div class="chaos-post">
+                                                    <div class="chaos-post-header">
+                                                        <div class="chaos-post-author">DinoSpy</div>
+                                                        <div class="chaos-post-date">Feb 17, 2002, 01:22 AM</div>
+                                                    </div>
+                                                    <div class="chaos-post-content">
+                                                        <p>NedryLives - That website is EXACTLY what I've been looking
+                                                            for!
+                                                            When I tried to access it, I got a login screen. Anyone know
+                                                            how
+                                                            to get past that?</p>
+
+                                                        <p>DrMalcolm - Interesting that you're so quick to dismiss this.
+                                                            Your username is a strange choice for someone who claims to
+                                                            be
+                                                            all about "real science" and dismisses the InGen connection.
+                                                            Hitting a nerve, perhaps?</p>
+
+                                                        <p>I'll keep digging into the HuntTheWitch connection. Something
+                                                            big
+                                                            is hiding in plain sight.</p>
+                                                    </div>
+                                                    <div class="chaos-user-info">
+                                                        Posts: 342 | Joined: Jan 2000 | Location: San Diego
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="chaos-sidebar">
+                                            <h3>SEARCH</h3>
+                                            <form>
+                                                <input type="text" style="width:95%;">
+                                                <input type="submit" value="Search" style="margin-top:5px;">
+                                            </form>
+
+                                            <h3>HOT TOPICS</h3>
+                                            <ul>
+                                                <li><a href="#" class="construction-link">Unexplained Animal Attacks in
+                                                        Costa Rica</a></li>
+                                                <li><a href="#" class="construction-link">San Diego Incident -
+                                                        Eyewitness
+                                                        Accounts</a></li>
+                                                <li><a href="#" class="construction-link">InGen's Secret Research
+                                                        Facilities</a></li>
+                                                <li><a href="#" class="construction-link">The Mysterious Isla Sorna</a>
+                                                </li>
+                                            </ul>
+
+                                            <h3>RELATED LINKS</h3>
+                                            <ul>
+                                                <li><a href="#" class="construction-link">Cryptozoology Network</a></li>
+                                                <li><a href="#" class="construction-link">Costa Rican Tourism Board</a>
+                                                </li>
+                                                <li><a href="#" class="construction-link">San Diego Tribune Archives</a>
+                                                </li>
+                                                <li><a href="#" class="construction-link">BioSyn Corporate Portal</a>
+                                                </li>
+                                                <li><a href="https://www.HuntTheWitch.com"
+                                                        class="chaos-hidden-link">Project
+                                                        Witch Files</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="chaos-footer">
+                                        Copyright © 2002 ChaosTheoryForums.com | All rights reserved | <a href="#"
+                                            class="construction-link">Privacy Policy</a> | <a href="#"
+                                            class="construction-link">Terms of Service</a><br>
+                                        Jurassic Park™ and all related marks are registered trademarks of Universal
+                                        Studios
+                                        and Amblin Entertainment, Inc.
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Third website: nextest-challenge.com -->
+                        <div class="website-content nextest-challenge-content">
+                            <div class="nextest-challenge-page">
+                                <h2>Final Challenge</h2>
+                                <p>Secret code: <span class="secret-code">WINDOWS_XP_FOREVER</span></p>
+                                <p>The hidden URL is: <span
+                                        class="secret-url">https://www.final-challenge.com/1213</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Final Website: Password -->
+                        <div class="website-content final-challenge-content">
+                            <div class="final-challenge-page">
+                                <h2>Password please</h2>
+                            </div>
+                        </div>
+
+                        <!-- Not found page -->
+                        <div class="website-content not-found-content">
+                            <div class="browser-error">
+                                <h2>404 - Page Not Found</h2>
+                                <p>The requested URL was not found on this server.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="taskbar">
-        <div id="start-button">
-            <img src="images/start.webp" alt="Start">
-            Start
+        <div id="taskbar">
+            <div id="start-button">
+                <img src="images/start.webp" alt="Start">
+                Start
+            </div>
+            <div id="time">12:00</div>
         </div>
-        <div id="time">12:00</div>
-    </div>
 </body>
+
 </html>

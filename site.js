@@ -1,3 +1,22 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const bootScreen = document.getElementById('boot-screen');
+  const bootVideo = document.getElementById('boot-video');
+  const desktop = document.getElementById('desktop');
+
+  if (bootVideo) {
+    bootVideo.addEventListener('ended', function () {
+      bootScreen.style.display = 'none';
+      desktop.style.display = 'block';
+    });
+  } else {
+    // Fallback in case video doesn't load
+    setTimeout(() => {
+      bootScreen.style.display = 'none';
+      desktop.style.display = 'block';
+    }, 3000);
+  }
+});
+
 // Clock functionality
 function updateClock() {
   const now = new Date();
@@ -267,24 +286,24 @@ function navigateToUrl(url, addToHistory = true) {
 }
 
 // Navigation event listeners
-goButton.addEventListener("click", function() {
+goButton.addEventListener("click", function () {
   const url = addressBar.value.trim().toLowerCase();
   navigateToUrl(url);
 });
 
-addressBar.addEventListener("keypress", function(e) {
+addressBar.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     const url = addressBar.value.trim().toLowerCase();
     navigateToUrl(url);
   }
 });
 
-backButton.addEventListener("click", function() {
+backButton.addEventListener("click", function () {
   if (currentHistoryPosition > 0) {
     const currentUrl = browserHistory[currentHistoryPosition];
     currentHistoryPosition--;
     const previousUrl = browserHistory[currentHistoryPosition];
-    
+
     // Handle special case for Chaos Theory conspiracy page
     if (currentUrl === "https://www.chaostheoryforums.com/conspiracy") {
       document.querySelector('#chaos-conspiracy-page').style.display = 'none';
@@ -296,7 +315,7 @@ backButton.addEventListener("click", function() {
   }
 });
 
-refreshButton.addEventListener("click", function() {
+refreshButton.addEventListener("click", function () {
   if (browserHistory.length > 0 && currentHistoryPosition >= 0) {
     const currentUrl = browserHistory[currentHistoryPosition];
     navigateToUrl(currentUrl, false);
@@ -306,9 +325,9 @@ refreshButton.addEventListener("click", function() {
 });
 
 // Document ready functionality
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Handle construction links
-  document.body.addEventListener('click', function(e) {
+  document.body.addEventListener('click', function (e) {
     if (e.target && e.target.classList.contains('construction-link')) {
       e.preventDefault();
       navigateToUrl("under-construction");
@@ -338,22 +357,22 @@ document.addEventListener('DOMContentLoaded', function() {
       e.target.style.fontWeight = 'bold';
     }
   });
-    
+
   // Home button functionality - find all HOME links in the navigation
   const homeLinks = document.querySelectorAll('.bf-nav a:first-child');
   homeLinks.forEach(link => {
     link.classList.remove('construction-link');
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
       e.preventDefault();
       // If we're in the article view, go back to the main page
       document.querySelector('.battlefield-article')?.classList.remove('active');
       document.querySelector('.battlefieldcenterz')?.classList.add('active');
     });
   });
-  
+
   // Browser home button functionality
   const homeButton = document.querySelector(".browser-button:nth-child(4)"); // Select the Home button
-  homeButton.addEventListener("click", function(e) {
+  homeButton.addEventListener("click", function (e) {
     e.preventDefault();
     // Reset to welcome page
     document.querySelectorAll(".website-content").forEach(content => {
@@ -362,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector(".default-content").classList.add("active");
     addressBar.value = "";
   });
-  
+
   // Initial state
   if (browserWindow.style.display !== "none") {
     navigateToUrl("", false);
@@ -370,29 +389,29 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Window focus handlers
-txtWindow.addEventListener("mousedown", function() {
+txtWindow.addEventListener("mousedown", function () {
   bringWindowToFront(this);
 });
 
-browserWindow.addEventListener("mousedown", function() {
+browserWindow.addEventListener("mousedown", function () {
   bringWindowToFront(this);
 });
 
 function setupChaosForumNavigation() {
   // When the ChaosTheoryForum section is displayed, set up navigation
-  document.body.addEventListener('click', function(e) {
+  document.body.addEventListener('click', function (e) {
     // Handle clicks on conspiracy theory link
     if (e.target && e.target.classList.contains('chaos-conspiracy-link')) {
       e.preventDefault();
       e.stopPropagation();
-      
+
       // Make sure we're in the forum page
       document.querySelector('.ChaosTheoryForum').classList.add('active');
-      
+
       // Hide the main forum content and show the conspiracy page
       document.querySelector('#chaos-main-page').style.display = 'none';
       document.querySelector('#chaos-conspiracy-page').style.display = 'block';
-      
+
       // Update browser history to make back button work correctly
       if (addressBar.value === "https://www.chaostheoryforums.com") {
         // Create a special URL for the conspiracy page that doesn't actually navigate
@@ -401,27 +420,27 @@ function setupChaosForumNavigation() {
         addressBar.value = "https://www.chaostheoryforums.com/conspiracy";
       }
     }
-    
+
     // Navigation back to main forum page
     if (e.target && e.target.classList.contains('chaos-home-link')) {
       e.preventDefault();
       e.stopPropagation();
-      
+
       // Hide the conspiracy page and show the main forum
       document.querySelector('#chaos-conspiracy-page').style.display = 'none';
       document.querySelector('#chaos-main-page').style.display = 'block';
-      
+
       // Update browser history
       if (addressBar.value === "https://www.chaostheoryforums.com/conspiracy") {
         navigateToUrl("https://www.chaostheoryforums.com", true);
       }
     }
   });
-  
+
   // Add handler for the hidden link in the conspiracy page
   const hiddenLinks = document.querySelectorAll('.chaos-hidden-link');
   hiddenLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
       e.preventDefault();
       if (this.href && this.href.includes('HuntTheWitch.com')) {
         navigateToUrl("https://www.HuntTheWitch.com");
