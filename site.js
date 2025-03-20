@@ -244,6 +244,9 @@ function navigateToUrl(url, addToHistory = true) {
       document.querySelector(".battlefieldcenterz").classList.add("active");
     } else if (url === "https://www.chaostheoryforums.com") {
       document.querySelector(".ChaosTheoryForum").classList.add("active");
+      document.querySelector("#chaos-main-page").style.display = "block";
+      document.querySelector("#chaos-conspiracy-page").style.display = "none";
+      setupChaosForumNavigation();
     } else if (url === "https://www.nextest-challenge.com/91011") {
       document.querySelector(".nextest-challenge-content").classList.add("active");
     } else if (url === "https://www.final-challenge.com/1213") {
@@ -375,3 +378,52 @@ txtWindow.addEventListener("mousedown", function() {
 browserWindow.addEventListener("mousedown", function() {
   bringWindowToFront(this);
 });
+
+// This function can be added to your site.js file
+
+function setupChaosForumNavigation() {
+  // When the ChaosTheoryForum section is displayed, set up navigation
+  document.body.addEventListener('click', function(e) {
+    if (e.target && e.target.classList.contains('chaos-conspiracy-link')) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Hide the main forum content and show the conspiracy page
+      const forumContainers = document.querySelectorAll('.chaos-container');
+      if (forumContainers.length > 0) {
+        // Hide all forum pages first
+        forumContainers.forEach(container => {
+          container.style.display = 'none';
+        });
+        
+        // Show the conspiracy page container
+        const conspiracyPage = document.querySelector('#chaos-conspiracy-page');
+        if (conspiracyPage) {
+          conspiracyPage.style.display = 'block';
+        }
+      }
+    }
+    
+    // Navigation back to main forum page
+    if (e.target && e.target.classList.contains('chaos-home-link')) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Hide the conspiracy page and show the main forum
+      const conspiracyPage = document.querySelector('#chaos-conspiracy-page');
+      if (conspiracyPage) {
+        conspiracyPage.style.display = 'none';
+      }
+      
+      // Show the main forum page
+      const mainPage = document.querySelector('#chaos-main-page');
+      if (mainPage) {
+        mainPage.style.display = 'block';
+      }
+    }
+  });
+}
+
+function integrateChaosForum() {
+  setupChaosForumNavigation();
+}
