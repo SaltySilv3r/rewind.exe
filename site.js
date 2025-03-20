@@ -1,3 +1,4 @@
+// Clock functionality
 function updateClock() {
   const now = new Date();
   const timeDisplay = document.getElementById('time');
@@ -131,7 +132,7 @@ function removeTxtFromTaskbar() {
 const browserIcon = document.getElementById("browser");
 const browserWindow = document.getElementById("browserwindow");
 
-// Browser addEventListener
+// Browser event listeners
 browserIcon.addEventListener("click", function () {
   browserWindow.style.display = "block";
   dragElement(browserWindow);
@@ -194,7 +195,7 @@ function removeBrowserFromTaskbar() {
   }
 }
 
-// Show loading screen for realistic delay
+// Browser content loading functions
 function showLoadingScreen() {
   // Hide all website content
   document.querySelectorAll(".website-content").forEach(content => {
@@ -209,7 +210,7 @@ function hideLoadingScreen() {
   document.querySelector(".browser-loading-screen").classList.remove("active");
 }
 
-// Navigation 
+// Browser navigation functionality
 const addressBar = document.querySelector(".address-bar");
 const goButton = document.querySelector(".go-button");
 const backButton = document.getElementById("back-button");
@@ -260,22 +261,20 @@ function navigateToUrl(url, addToHistory = true) {
   }, Math.random() * 1000 + 1000); // Random delay between 1-2 seconds
 }
 
-// Go button click handler
-goButton.addEventListener("click", function () {
+// Navigation event listeners
+goButton.addEventListener("click", function() {
   const url = addressBar.value.trim().toLowerCase();
   navigateToUrl(url);
 });
 
-// Enter key in address bar
-addressBar.addEventListener("keypress", function (e) {
+addressBar.addEventListener("keypress", function(e) {
   if (e.key === "Enter") {
     const url = addressBar.value.trim().toLowerCase();
     navigateToUrl(url);
   }
 });
 
-// Back button functionality
-backButton.addEventListener("click", function () {
+backButton.addEventListener("click", function() {
   if (currentHistoryPosition > 0) {
     currentHistoryPosition--;
     const previousUrl = browserHistory[currentHistoryPosition];
@@ -283,8 +282,7 @@ backButton.addEventListener("click", function () {
   }
 });
 
-// Refresh button functionality
-refreshButton.addEventListener("click", function () {
+refreshButton.addEventListener("click", function() {
   if (browserHistory.length > 0 && currentHistoryPosition >= 0) {
     const currentUrl = browserHistory[currentHistoryPosition];
     navigateToUrl(currentUrl, false);
@@ -293,19 +291,21 @@ refreshButton.addEventListener("click", function () {
   }
 });
 
-// Construction links handler
-document.addEventListener('DOMContentLoaded', function () {
+// Document ready functionality
+document.addEventListener('DOMContentLoaded', function() {
   // Handle construction links
-  document.body.addEventListener('click', function (e) {
+  document.body.addEventListener('click', function(e) {
     if (e.target && e.target.classList.contains('construction-link')) {
       e.preventDefault();
       navigateToUrl("under-construction");
     }
 
+    
+
     // Article read more handler
     if (e.target && e.target.classList.contains('bf-read-more')) {
       e.preventDefault();
-      document.querySelector('.battlefieldcenterz .bf-container').style.display = 'none';
+      document.querySelector('.battlefieldcenterz').classList.remove('active');
       const articlePage = document.querySelector('.battlefield-article');
       if (articlePage) {
         articlePage.classList.add('active');
@@ -316,22 +316,62 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.target && (e.target.classList.contains('bf-back-button') || e.target.id === 'back-to-home')) {
       e.preventDefault();
       document.querySelector('.battlefield-article').classList.remove('active');
-      document.querySelector('.battlefieldcenterz .bf-container').style.display = 'block';
       document.querySelector('.battlefieldcenterz').classList.add('active');
     }
+  });
+    
+    // Home button functionality - find all HOME links in the navigation
+    const homeLinks = document.querySelectorAll('.bf-nav a:first-child');
+    homeLinks.forEach(link => {
+      link.classList.remove('construction-link');
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        // If we're in the article view, go back to the main page
+        document.querySelector('.battlefield-article')?.classList.remove('active');
+        document.querySelector('.battlefieldcenterz')?.classList.add('active');
+      });
+    });
+  
+    // Browser home button functionality - PASTE THIS CODE HERE
+    const homeButton = document.querySelector(".browser-button:nth-child(4)"); // Select the Home button
+    homeButton.addEventListener("click", function(e) {
+      e.preventDefault();
+      // Reset to welcome page
+      document.querySelectorAll(".website-content").forEach(content => {
+        content.classList.remove("active");
+      });
+      document.querySelector(".default-content").classList.add("active");
+      addressBar.value = "";
+    });
+  
+    // Initial state
+    if (browserWindow.style.display !== "none") {
+      navigateToUrl("", false);
+    }
+  });  
+  
+  // Home button functionality - find all HOME links in the navigation
+  const homeLinks = document.querySelectorAll('.bf-nav a:first-child');
+  homeLinks.forEach(link => {
+    link.classList.remove('construction-link');
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      // If we're in the article view, go back to the main page
+      document.querySelector('.battlefield-article')?.classList.remove('active');
+      document.querySelector('.battlefieldcenterz')?.classList.add('active');
+    });
   });
 
   // Initial state
   if (browserWindow.style.display !== "none") {
     navigateToUrl("", false);
   }
-});
 
-txtWindow.addEventListener("mousedown", function () {
+// Window focus handlers
+txtWindow.addEventListener("mousedown", function() {
   bringWindowToFront(this);
 });
 
-browserWindow.addEventListener("mousedown", function () {
+browserWindow.addEventListener("mousedown", function() {
   bringWindowToFront(this);
 });
-

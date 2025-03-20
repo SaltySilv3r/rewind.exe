@@ -224,6 +224,9 @@ button {
     display: none;
     width: 100%;
     height: 100%;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
 }
 
 .website-content.active {
@@ -299,9 +302,10 @@ button {
     color: #D3D3A4;
     font-size: 12px;
     border: 2px solid #8B8B62;
-    max-width: 760px;
+    max-width: 100%;
     cursor: default;
-    margin: 0 auto; 
+    margin: 0;
+    box-sizing: border-box;
 }
 
 #link {
@@ -372,7 +376,8 @@ button {
     width: 25%;
     background-color: rgba(61, 61, 41, 0.85);
     padding: 10px;
-    font-size: 11px;
+    font-size: 13px;
+    box-sizing: border-box;
 }
 
 .bf-sidebar h3 {
@@ -479,7 +484,7 @@ button {
     border-top: 1px dashed #8B8B62;
     font-style: italic;
     color: #A0A080;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 .bf-updates {
@@ -503,6 +508,7 @@ button {
 
 .bf-updates li {
     margin-bottom: 3px;
+    font-size: 13px;
 }
 
 .bf-new-flash {
@@ -526,28 +532,17 @@ button {
     background-color: rgba(74, 90, 65, 0.9);
 }
 
-.bf-container {
-    width: 100%;
-    background-color: #3D3D29;
-    background-image: url('images/camo-bg.jpg');
-    background-position: center;
-    background-repeat: repeat;
-    font-family: 'Courier New', Courier, monospace;
-    color: #D3D3A4;
-    font-size: 12px;
-    border: 2px solid #8B8B62;
-    max-width: 760px;
-    margin: 0 auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
 .battlefield-article {
     background-color: #4A5A41;
 }
 
-.bf-container {
-    max-width: 100%; /* Change from 760px to fill the browser window */
-    margin: 0;
+.battlefield-article .bf-container {
+    padding: 0;
+}
+
+.bf-article-container {
+    display: flex;
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -556,6 +551,7 @@ button {
     padding: 10px;
     background-color: rgba(74, 90, 65, 0.7);
     line-height: 1.4;
+    box-sizing: border-box;
 }
 
 .bf-article-header {
@@ -677,3 +673,43 @@ button {
     border-radius: 3px;
 }
 
+/* For the CSS: Add these styles to make URL parts subtly hidden but discoverable */
+
+/* Increase font size for better legibility across the site */
+.bf-container {
+    font-size: 14px; /* Increased from 12px */
+}
+
+.bf-post-title {
+    font-size: 18px; /* Increased from 16px */
+}
+
+/* First URL part - subtle but discoverable */
+#first-url-part {
+    color: rgba(74, 90, 65, 0.95); /* Almost same color as background */
+    transition: color 0.3s;
+    cursor: default;
+    font-weight: normal;
+}
+
+#first-url-part:hover {
+    color: #ffffff; /* Show on hover */
+}
+
+/* Second URL part - visible only on hover/interaction */
+#second-url-part {
+    color: rgba(74, 90, 65, 0.98); /* Almost invisible */
+    text-decoration: none;
+    cursor: text;
+    font-style: normal;
+}
+
+#second-url-part:hover {
+    color: #ffffff; /* Show on hover */
+}
+
+/* For clearer visibility of highlighted elements */
+#link {
+    color: #D3D3A4;
+    font-size: 13px;
+}
