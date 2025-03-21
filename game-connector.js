@@ -1,9 +1,12 @@
+// Game connector functionality for the Rewind.exe game
+// This integrates with the blockbuster challenge system
+
 document.addEventListener("DOMContentLoaded", function () {
     GameConnector.init();
 });
 
 var GameConnector = {
-    GAME_ENTRY_CODE: 'WINDOWS_XP_FOREVER', // The secret code users must find in the game
+    GAME_ENTRY_CODE: '0710', // The secret code users must find in the game
     GAME_ID: "rewindExeGame", // Unique identifier for this game
 
     init: function () {

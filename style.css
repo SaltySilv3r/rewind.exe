@@ -1011,3 +1011,83 @@ button {
 .chaos-home-link, .chaos-conspiracy-link {
     cursor: pointer;
 }
+
+/* Add these styles to your style.css file */
+
+.final-challenge-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    background-color: #f0f0f0;
+    border: 2px solid #0066cc;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 40px auto;
+    font-family: 'Tahoma', sans-serif;
+}
+
+.final-challenge-page h2 {
+    color: #003366;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.code-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.digit-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.digit-input {
+    width: 50px;
+    height: 60px;
+    font-size: 32px;
+    text-align: center;
+    margin: 0 5px;
+    border: 2px solid #0066cc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+#verify-code-btn {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#verify-code-btn:hover {
+    background-color: #004c99;
+}
+
+#verification-message {
+    margin-top: 15px;
+    font-weight: bold;
+    min-height: 20px;
+}
+
+.completion-message {
+    background-color: #e6f2ff;
+    border: 2px solid #0066cc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.completion-message h2 {
+    color: #0066cc;
+}
