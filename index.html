@@ -895,7 +895,22 @@
                         <!-- Final Website: Password -->
                         <div class="website-content final-challenge-content">
                             <div class="final-challenge-page">
-                                <h2>Password please</h2>
+                                <h2>FINAL VERIFICATION</h2>
+                                <div class="code-entry">
+                                    <p>Enter the 4-digit access code below:</p>
+                                    <div class="digit-container">
+                                        <input type="text" maxlength="1" class="digit-input" pattern="[0-9]"
+                                            inputmode="numeric">
+                                        <input type="text" maxlength="1" class="digit-input" pattern="[0-9]"
+                                            inputmode="numeric">
+                                        <input type="text" maxlength="1" class="digit-input" pattern="[0-9]"
+                                            inputmode="numeric">
+                                        <input type="text" maxlength="1" class="digit-input" pattern="[0-9]"
+                                            inputmode="numeric">
+                                    </div>
+                                    <button id="verify-code-btn">Verify</button>
+                                    <p id="verification-message"></p>
+                                </div>
                             </div>
                         </div>
 
