@@ -1021,7 +1021,7 @@ button {
     justify-content: center;
     text-align: center;
     padding: 40px;
-    background-color: none
+    background-color: none;
     border: none;
     border-radius: 8px;
     max-width: 500px;
@@ -1061,14 +1061,22 @@ button {
 }
 
 .website-contentfinal-challenge-content {
-background-image: url('images/matrix.jpg');
-background-position: cover;
+    background-image: url('images/matrix.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
 #verify-code-btn {
     background-color: #000000;
     color: rgb(255, 255, 255);
-    border: none;
+    border: 2px solid #ffffff;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 4px;
@@ -1077,7 +1085,7 @@ background-position: cover;
 }
 
 #verify-code-btn:hover {
-    background-color: #ffffff;
+    background-color: #25933f;
 }
 
 #verification-message {
