@@ -1,10 +1,3 @@
-// Game constants
-const GAME_ENTRY_CODE = '0710';
-const GAME_ID = "rewindExeGame";
-
-// URL for verification website
-const youAlmostDidItURL = "https://www.youalmostdidit.com";
-
 // Minimal integration for the Blockbuster challenge system
 document.addEventListener("DOMContentLoaded", function () {
     // Initialize when the page loads
