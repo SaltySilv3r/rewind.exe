@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100">
+  <!-- Dark background -->
+  <rect width="400" height="100" fill="#000000"/>
+  
+  <!-- Matrix-like pattern with subtle green elements -->
+  <g opacity="0.12">
+    <!-- Random binary-like characters -->
+    <text x="10" y="15" font-family="monospace" font-size="10" fill="#00ff00">10110101001011010100101101</text>
+    <text x="30" y="30" font-family="monospace" font-size="10" fill="#00ff00">01011010101101011010101</text>
+    <text x="15" y="45" font-family="monospace" font-size="10" fill="#00ff00">101011001010110010101</text>
+    <text x="25" y="60" font-family="monospace" font-size="10" fill="#00ff00">0101101010110101101010</text>
+    <text x="5" y="75" font-family="monospace" font-size="10" fill="#00ff00">1010110101001011010100</text>
+    <text x="20" y="90" font-family="monospace" font-size="10" fill="#00ff00">010110101011010110101</text>
+    
+    <!-- Random lines -->
+    <line x1="100" y1="0" x2="150" y2="50" stroke="#00aa00" stroke-width="0.5"/>
+    <line x1="200" y1="10" x2="250" y2="60" stroke="#00aa00" stroke-width="0.5"/>
+    <line x1="300" y1="20" x2="350" y2="70" stroke="#00aa00" stroke-width="0.5"/>
+    <line x1="120" y1="80" x2="170" y2="30" stroke="#00aa00" stroke-width="0.5"/>
+    <line x1="220" y1="90" x2="270" y2="40" stroke="#00aa00" stroke-width="0.5"/>
+    <line x1="320" y1="100" x2="370" y2="50" stroke="#00aa00" stroke-width="0.5"/>
+    
+    <!-- Random circles -->
+    <circle cx="50" cy="20" r="5" fill="none" stroke="#005500" stroke-width="0.5"/>
+    <circle cx="150" cy="30" r="10" fill="none" stroke="#005500" stroke-width="0.5"/>
+    <circle cx="250" cy="40" r="15" fill="none" stroke="#005500" stroke-width="0.5"/>
+    <circle cx="350" cy="50" r="10" fill="none" stroke="#005500" stroke-width="0.5"/>
+    <circle cx="100" cy="60" r="5" fill="none" stroke="#005500" stroke-width="0.5"/>
+    <circle cx="200" cy="70" r="10" fill="none" stroke="#005500" stroke-width="0.5"/>
+    <circle cx="300" cy="80" r="15" fill="none" stroke="#005500" stroke-width="0.5"/>
+    
+    <!-- Subtly varying background texture -->
+    <rect x="0" y="0" width="400" height="100" fill="url(#noise)"/>
+  </g>
+  
+  <!-- Noise filter definition -->
+  <defs>
+    <filter id="noise" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.1 0 0 0 0 0 0 0 0 0.05 0" in="noise" result="coloredNoise"/>
+      <feBlend mode="overlay" in="SourceGraphic" in2="coloredNoise" result="blend"/>
+    </filter>
+  </defs>
+</svg>
