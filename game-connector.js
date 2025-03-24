@@ -1,3 +1,10 @@
+// Game constants
+const GAME_ENTRY_CODE = '0710';
+const GAME_ID = "rewindExeGame";
+
+// URL for verification website
+const youAlmostDidItURL = "https://www.youalmostdidit.com";
+
 // Minimal integration for the Blockbuster challenge system
 document.addEventListener("DOMContentLoaded", function () {
     // Initialize when the page loads
@@ -14,15 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 code += input.value;
             });
 
-            if (code === '0710') {
+            if (code === GAME_ENTRY_CODE) {
                 // Send completion message to Blockbuster system
                 PusherManager.sendMessageToChannel({
                     msg: 'Game Finished!',
-                    gameID: "rewindExeGame"
+                    gameID: GAME_ID
                 });
 
                 // Show completion message
-                const finalChallengePage = document.querySelector('.final-challenge-page');
+                const finalChallengePage = document.querySelector('.password-verification-page');
                 finalChallengePage.innerHTML = '';
 
                 const completionMessage = document.createElement('div');

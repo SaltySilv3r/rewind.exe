@@ -1,20 +1,68 @@
+// URL constants for Rewind.exe
+export const battlefieldCenterURL = "https://www.battlefieldcenterz.com";
+export const chaosTheoryForumsURL = "https://www.chaostheoryforums.com";
+export const chaosTheoryConspiracyURL = "https://www.chaostheoryforums.com/conspiracy";
+export const huntTheWitchURL = "https://www.huntthewitch.com";
+export const huntTheWitchInvestigationURL = "https://www.huntthewitch.com/investigation";
+export const finalChallengeURL = "https://www.final-challenge.com/1213";
+export const underConstructionURL = "under-construction";
+
+// Game constants
+export const GAME_ENTRY_CODE = "0710";
+export const GAME_ID = "rewindExeGame";
+
+// Pusher settings
+export const PUSHER_APP_KEY = "34aeee625e438241557b";
+export const PUSHER_CLUSTER = "eu";
+export const PUSHER_AUTH_ENDPOINT = "https://interactionfigure.nl/nhl/blockbusterauth/pusher_auth.php";
+export const PUSHER_CHANNEL = "presence-blockbuster";
+
+// URL constants for Rewind.exe
+const battlefieldCenterURL = "https://www.battlefieldcenterz.com";
+const chaosTheoryForumsURL = "https://www.chaostheoryforums.com";
+const chaosTheoryConspiracyURL = "https://www.chaostheoryforums.com/conspiracy";
+const huntTheWitchURL = "https://www.huntthewitch.com";
+const huntTheWitchInvestigationURL = "https://www.huntthewitch.com/investigation";
+const youAlmostDidItURL = "https://www.youalmostdidit.com";
+const underConstructionURL = "under-construction";
+
+// Game constants
+const GAME_ENTRY_CODE = "0710";
+const GAME_ID = "rewindExeGame";
+
+// Pusher settings
+const PUSHER_APP_KEY = "34aeee625e438241557b";
+const PUSHER_CLUSTER = "eu";
+const PUSHER_AUTH_ENDPOINT = "https://interactionfigure.nl/nhl/blockbusterauth/pusher_auth.php";
+const PUSHER_CHANNEL = "presence-blockbuster";
+
+// Update this code in site.js
 document.addEventListener('DOMContentLoaded', function () {
   const bootScreen = document.getElementById('boot-screen');
   const bootVideo = document.getElementById('boot-video');
   const desktop = document.getElementById('desktop');
 
+  // Function to skip boot animation and show desktop
+  function skipBootAnimation() {
+    bootScreen.style.display = 'none';
+    desktop.style.display = 'block';
+    
+    // Pause the video when skipped
+    if (bootVideo) {
+      bootVideo.pause();
+    }
+  }
+
   if (bootVideo) {
-    bootVideo.addEventListener('ended', function () {
-      bootScreen.style.display = 'none';
-      desktop.style.display = 'block';
-    });
+    // Skip when video ends naturally
+    bootVideo.addEventListener('ended', skipBootAnimation);
   } else {
     // Fallback in case video doesn't load
-    setTimeout(() => {
-      bootScreen.style.display = 'none';
-      desktop.style.display = 'block';
-    }, 3000);
+    setTimeout(skipBootAnimation, 3000);
   }
+
+  // Add click event to allow skipping by clicking anywhere on the boot screen
+  bootScreen.addEventListener('click', skipBootAnimation);
 });
 
 // Clock functionality
@@ -259,26 +307,24 @@ function navigateToUrl(url, addToHistory = true) {
 
     if (!url || url === "") {
       document.querySelector(".default-content").classList.add("active");
-    } else if (url === "https://www.battlefieldcenterz.com") {
+    } else if (url === battlefieldCenterURL) {
       document.querySelector(".battlefieldcenterz").classList.add("active");
-    } else if (url === "https://www.chaostheoryforums.com") {
+    } else if (url === chaosTheoryForumsURL) {
       document.querySelector(".ChaosTheoryForum").classList.add("active");
       document.querySelector("#chaos-main-page").style.display = "block";
       document.querySelector("#chaos-conspiracy-page").style.display = "none";
       setupChaosForumNavigation();
-    } else if (url.toLowerCase() === "https://www.huntthewitch.com") {
+    } else if (url.toLowerCase() === huntTheWitchURL) {
       document.querySelector(".blair-witch-content").classList.add("active");
       document.getElementById('blair-evidence-page').style.display = 'none';
       document.getElementById('blair-main-page').style.display = 'flex';
-    } else if (url === "https://www.huntthewitch.com/investigation") {
+    } else if (url === huntTheWitchInvestigationURL) {
       document.querySelector(".blair-witch-content").classList.add("active");
       document.getElementById('blair-main-page').style.display = 'none';
       document.getElementById('blair-evidence-page').style.display = 'flex';
-    } else if (url === "https://www.nextest-challenge.com/91011") {
-      document.querySelector(".nextest-challenge-content").classList.add("active");
-    } else if (url === "https://www.final-challenge.com/1213") {
-      document.querySelector(".final-challenge-content").classList.add("active");
-    } else if (url === "under-construction") {
+    } else if (url === youAlmostDidItURL) {
+      document.querySelector(".password-verification-content").classList.add("active");
+    } else if (url === underConstructionURL) {
       document.querySelector(".under-construction").classList.add("active");
     } else {
       document.querySelector(".not-found-content").classList.add("active");
@@ -311,17 +357,17 @@ backButton.addEventListener("click", function () {
     const previousUrl = browserHistory[currentHistoryPosition];
 
     // Handle special case for Chaos Theory conspiracy page
-    if (currentUrl === "https://www.chaostheoryforums.com/conspiracy") {
+    if (currentUrl === chaosTheoryConspiracyURL) {
       document.querySelector('#chaos-conspiracy-page').style.display = 'none';
       document.querySelector('#chaos-main-page').style.display = 'block';
-      addressBar.value = "https://www.chaostheoryforums.com";
+      addressBar.value = chaosTheoryForumsURL;
     } 
     // Handle special case for Blair Witch investigation page
-    else if (currentUrl === "https://www.huntthewitch.com/investigation" && previousUrl === "https://www.huntthewitch.com") {
+    else if (currentUrl === huntTheWitchInvestigationURL && previousUrl === huntTheWitchURL) {
       document.querySelector(".blair-witch-content").classList.add("active");
       document.getElementById('blair-evidence-page').style.display = 'none';
       document.getElementById('blair-main-page').style.display = 'flex';
-      addressBar.value = "https://www.huntthewitch.com";
+      addressBar.value = huntTheWitchURL;
     }
     else {
       navigateToUrl(previousUrl, false);
@@ -344,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.body.addEventListener('click', function (e) {
     if (e.target && e.target.classList.contains('construction-link')) {
       e.preventDefault();
-      navigateToUrl("under-construction");
+      navigateToUrl(underConstructionURL);
     }
 
     // Article read more handler
@@ -378,8 +424,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('blair-evidence-page').style.display = 'none';
         document.getElementById('blair-main-page').style.display = 'flex';
         // Update browser history
-        if (browserHistory[currentHistoryPosition] === "https://www.huntthewitch.com/investigation") {
-          navigateToUrl("https://www.huntthewitch.com", true);
+        if (browserHistory[currentHistoryPosition] === huntTheWitchInvestigationURL) {
+          navigateToUrl(huntTheWitchURL, true);
         }
       }
     }
@@ -391,17 +437,17 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('blair-main-page').style.display = 'none';
         document.getElementById('blair-evidence-page').style.display = 'flex';
         // Update browser history
-        if (browserHistory[currentHistoryPosition] === "https://www.huntthewitch.com") {
-          navigateToUrl("https://www.huntthewitch.com/investigation", true);
+        if (browserHistory[currentHistoryPosition] === huntTheWitchURL) {
+          navigateToUrl(huntTheWitchInvestigationURL, true);
         }
       }
     }
     
-    // Blair Witch secret links to final challenge
+    // Blair Witch secret links to password verification page
     if (e.target && e.target.classList.contains('blair-secret-text')) {
-      if (e.target.href && e.target.href.includes('final-challenge.com')) {
+      if (e.target.href && e.target.href.includes('youalmostdidit.com')) {
         e.preventDefault();
-        navigateToUrl("https://www.final-challenge.com/1213");
+        navigateToUrl(youAlmostDidItURL);
       }
     }
   });
@@ -461,11 +507,11 @@ function setupChaosForumNavigation() {
       document.querySelector('#chaos-conspiracy-page').style.display = 'block';
 
       // Update browser history to make back button work correctly
-      if (addressBar.value === "https://www.chaostheoryforums.com") {
+      if (addressBar.value === chaosTheoryForumsURL) {
         // Create a special URL for the conspiracy page that doesn't actually navigate
-        browserHistory.push("https://www.chaostheoryforums.com/conspiracy");
+        browserHistory.push(chaosTheoryConspiracyURL);
         currentHistoryPosition = browserHistory.length - 1;
-        addressBar.value = "https://www.chaostheoryforums.com/conspiracy";
+        addressBar.value = chaosTheoryConspiracyURL;
       }
     }
 
@@ -479,8 +525,8 @@ function setupChaosForumNavigation() {
       document.querySelector('#chaos-main-page').style.display = 'block';
 
       // Update browser history
-      if (addressBar.value === "https://www.chaostheoryforums.com/conspiracy") {
-        navigateToUrl("https://www.chaostheoryforums.com", true);
+      if (addressBar.value === chaosTheoryConspiracyURL) {
+        navigateToUrl(chaosTheoryForumsURL, true);
       }
     }
   });
@@ -491,7 +537,7 @@ function setupChaosForumNavigation() {
     link.addEventListener('click', function (e) {
       e.preventDefault();
       if (this.href && this.href.includes('HuntTheWitch.com')) {
-        navigateToUrl("https://www.HuntTheWitch.com");
+        navigateToUrl(huntTheWitchURL);
       }
     });
   });
@@ -509,8 +555,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 var GameConnector = {
-  GAME_ENTRY_CODE: '0710', // The secret code users must find in the game
-  GAME_ID: "rewindExeGame", // Unique identifier for this game
+  GAME_ENTRY_CODE: GAME_ENTRY_CODE, // The secret code users must find in the game
+  GAME_ID: GAME_ID, // Unique identifier for this game
 
   init: function () {
     // Initialize Pusher connection
@@ -599,7 +645,7 @@ var GameConnector = {
     });
 
     // Show completion message
-    const finalChallengePage = document.querySelector('.final-challenge-page');
+    const finalChallengePage = document.querySelector('.password-verification-page');
     finalChallengePage.innerHTML = '';
 
     const completionMessage = document.createElement('div');
@@ -625,10 +671,10 @@ var PusherManager = {
   init: function () {
     Pusher.logToConsole = true;
 
-    this.pusher = new Pusher('34aeee625e438241557b', {
-      cluster: 'eu',
+    this.pusher = new Pusher(PUSHER_APP_KEY, {
+      cluster: PUSHER_CLUSTER,
       forceTLS: true,
-      authEndpoint: 'https://interactionfigure.nl/nhl/blockbusterauth/pusher_auth.php'
+      authEndpoint: PUSHER_AUTH_ENDPOINT
     });
   },
 
