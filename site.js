@@ -17,37 +17,6 @@ export const PUSHER_CLUSTER = "eu";
 export const PUSHER_AUTH_ENDPOINT = "https://interactionfigure.nl/nhl/blockbusterauth/pusher_auth.php";
 export const PUSHER_CHANNEL = "presence-blockbuster";
 
-window.addEventListener('load', function() {
-  const bootScreen = document.getElementById('boot-screen');
-  const bootVideo = document.getElementById('boot-video');
-  const desktop = document.getElementById('desktop');
-
-  // Function to skip boot animation and show desktop
-  function skipBootAnimation() {
-    bootScreen.style.display = 'none';
-    desktop.style.display = 'block';
-    
-    // Pause the video when skipped
-    if (bootVideo) {
-      bootVideo.pause();
-    }
-  }
-
-  // Direct click handler for the boot screen - more reliable
-  if (bootScreen) {
-    bootScreen.onclick = skipBootAnimation;
-  }
-
-  // Force skip after a short timeout (5 seconds)
-  setTimeout(skipBootAnimation, 5000);
-
-  // If video exists, add event listeners
-  if (bootVideo) {
-    bootVideo.addEventListener('ended', skipBootAnimation);
-    bootVideo.addEventListener('error', skipBootAnimation);
-  }
-});
-
 // Clock functionality
 function updateClock() {
   const now = new Date();
