@@ -8,25 +8,6 @@ export const PUSHER_CLUSTER = "eu";
 export const PUSHER_AUTH_ENDPOINT = "https://interactionfigure.nl/nhl/blockbusterauth/pusher_auth.php";
 export const PUSHER_CHANNEL = "presence-blockbuster";
 
-// URL constants for Rewind.exe
-const battlefieldCenterURL = "https://www.battlefieldcenterz.com";
-const chaosTheoryForumsURL = "https://www.chaostheoryforums.com";
-const chaosTheoryConspiracyURL = "https://www.chaostheoryforums.com/conspiracy";
-const huntTheWitchURL = "https://www.huntthewitch.com";
-const huntTheWitchInvestigationURL = "https://www.huntthewitch.com/investigation";
-const youAlmostDidItURL = "https://www.youalmostdidit.com";
-const underConstructionURL = "under-construction";
-
-// Game constants
-const GAME_ENTRY_CODE = "0710";
-const GAME_ID = "rewindExeGame";
-
-// Pusher settings
-const PUSHER_APP_KEY = "34aeee625e438241557b";
-const PUSHER_CLUSTER = "eu";
-const PUSHER_AUTH_ENDPOINT = "https://interactionfigure.nl/nhl/blockbusterauth/pusher_auth.php";
-const PUSHER_CHANNEL = "presence-blockbuster";
-
 // Update this code in site.js
 document.addEventListener('DOMContentLoaded', function () {
   const bootScreen = document.getElementById('boot-screen');
