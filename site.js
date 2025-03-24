@@ -1,3 +1,12 @@
+// URL constants for Rewind.exe
+const battlefieldCenterURL = "https://www.battlefieldcenterz.com";
+const chaosTheoryForumsURL = "https://www.chaostheoryforums.com";
+const chaosTheoryConspiracyURL = "https://www.chaostheoryforums.com/conspiracy";
+const huntTheWitchURL = "https://www.huntthewitch.com";
+const huntTheWitchInvestigationURL = "https://www.huntthewitch.com/investigation";
+const youAlmostDidItURL = "https://www.youalmostdidit.com";
+const underConstructionURL = "under-construction";
+
 // Game constants
 export const GAME_ENTRY_CODE = "0710";
 export const GAME_ID = "rewindExeGame";
