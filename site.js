@@ -267,7 +267,13 @@ function navigateToUrl(url, addToHistory = true) {
       document.querySelector("#chaos-conspiracy-page").style.display = "none";
       setupChaosForumNavigation();
     } else if (url.toLowerCase() === "https://www.huntthewitch.com") {
-      document.querySelector(".nextest-challenge-content").classList.add("active");
+      document.querySelector(".blair-witch-content").classList.add("active");
+      document.getElementById('blair-evidence-page').style.display = 'none';
+      document.getElementById('blair-main-page').style.display = 'flex';
+    } else if (url === "https://www.huntthewitch.com/investigation") {
+      document.querySelector(".blair-witch-content").classList.add("active");
+      document.getElementById('blair-main-page').style.display = 'none';
+      document.getElementById('blair-evidence-page').style.display = 'flex';
     } else if (url === "https://www.nextest-challenge.com/91011") {
       document.querySelector(".nextest-challenge-content").classList.add("active");
     } else if (url === "https://www.final-challenge.com/1213") {
@@ -309,7 +315,15 @@ backButton.addEventListener("click", function () {
       document.querySelector('#chaos-conspiracy-page').style.display = 'none';
       document.querySelector('#chaos-main-page').style.display = 'block';
       addressBar.value = "https://www.chaostheoryforums.com";
-    } else {
+    } 
+    // Handle special case for Blair Witch investigation page
+    else if (currentUrl === "https://www.huntthewitch.com/investigation" && previousUrl === "https://www.huntthewitch.com") {
+      document.querySelector(".blair-witch-content").classList.add("active");
+      document.getElementById('blair-evidence-page').style.display = 'none';
+      document.getElementById('blair-main-page').style.display = 'flex';
+      addressBar.value = "https://www.huntthewitch.com";
+    }
+    else {
       navigateToUrl(previousUrl, false);
     }
   }
@@ -355,6 +369,40 @@ document.addEventListener('DOMContentLoaded', function () {
       // Make the URL parts more noticeable when clicked
       e.target.style.color = '#ffffff';
       e.target.style.fontWeight = 'bold';
+    }
+    
+    // Blair Witch home links
+    if (e.target && e.target.classList.contains('blair-home-link')) {
+      e.preventDefault();
+      if (document.querySelector('.blair-witch-content').classList.contains('active')) {
+        document.getElementById('blair-evidence-page').style.display = 'none';
+        document.getElementById('blair-main-page').style.display = 'flex';
+        // Update browser history
+        if (browserHistory[currentHistoryPosition] === "https://www.huntthewitch.com/investigation") {
+          navigateToUrl("https://www.huntthewitch.com", true);
+        }
+      }
+    }
+    
+    // Blair Witch evidence/investigation links
+    if (e.target && e.target.classList.contains('blair-evidence-link')) {
+      e.preventDefault();
+      if (document.querySelector('.blair-witch-content').classList.contains('active')) {
+        document.getElementById('blair-main-page').style.display = 'none';
+        document.getElementById('blair-evidence-page').style.display = 'flex';
+        // Update browser history
+        if (browserHistory[currentHistoryPosition] === "https://www.huntthewitch.com") {
+          navigateToUrl("https://www.huntthewitch.com/investigation", true);
+        }
+      }
+    }
+    
+    // Blair Witch secret links to final challenge
+    if (e.target && e.target.classList.contains('blair-secret-text')) {
+      if (e.target.href && e.target.href.includes('final-challenge.com')) {
+        e.preventDefault();
+        navigateToUrl("https://www.final-challenge.com/1213");
+      }
     }
   });
 
