@@ -8,14 +8,14 @@ const youAlmostDidItURL = "https://www.youalmostdidit.com";
 const underConstructionURL = "under-construction";
 
 // Game constants
-export const GAME_ENTRY_CODE = "0710";
-export const GAME_ID = "rewindExeGame";
+const GAME_ENTRY_CODE = "0710";
+const GAME_ID = "rewindExeGame";
 
 // Pusher settings
-export const PUSHER_APP_KEY = "34aeee625e438241557b";
-export const PUSHER_CLUSTER = "eu";
-export const PUSHER_AUTH_ENDPOINT = "https://interactionfigure.nl/nhl/blockbusterauth/pusher_auth.php";
-export const PUSHER_CHANNEL = "presence-blockbuster";
+const PUSHER_APP_KEY = "34aeee625e438241557b";
+const PUSHER_CLUSTER = "eu";
+const PUSHER_AUTH_ENDPOINT = "https://interactionfigure.nl/nhl/blockbusterauth/pusher_auth.php";
+const PUSHER_CHANNEL = "presence-blockbuster";
 
 // Fix for the boot screen video issue
 document.addEventListener('DOMContentLoaded', function () {
@@ -63,11 +63,13 @@ document.addEventListener('DOMContentLoaded', function () {
 function updateClock() {
   const now = new Date();
   const timeDisplay = document.getElementById('time');
-  timeDisplay.textContent = now.toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false
-  });
+  if (timeDisplay) {
+    timeDisplay.textContent = now.toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    });
+  }
 }
 setInterval(updateClock, 1000);
 updateClock();
