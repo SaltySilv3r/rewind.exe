@@ -17,7 +17,7 @@ export const PUSHER_CLUSTER = "eu";
 export const PUSHER_AUTH_ENDPOINT = "https://interactionfigure.nl/nhl/blockbusterauth/pusher_auth.php";
 export const PUSHER_CHANNEL = "presence-blockbuster";
 
-// Update this code in site.js
+// Boot Screen Video
 document.addEventListener('DOMContentLoaded', function () {
   const bootScreen = document.getElementById('boot-screen');
   const bootVideo = document.getElementById('boot-video');
@@ -34,16 +34,39 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  // Check if bootVideo exists before adding event listener
   if (bootVideo) {
     // Skip when video ends naturally
     bootVideo.addEventListener('ended', skipBootAnimation);
+    
+    // Add a timeout fallback in case the ended event doesn't fire
+    bootVideo.addEventListener('loadedmetadata', function() {
+      // Set timeout based on video duration plus a small buffer
+      setTimeout(skipBootAnimation, (bootVideo.duration * 1000) + 1000);
+    });
+    
+    // If video fails to load or has an error, skip to desktop
+    bootVideo.addEventListener('error', skipBootAnimation);
   } else {
     // Fallback in case video doesn't load
     setTimeout(skipBootAnimation, 3000);
   }
 
-  // Add click event to allow skipping by clicking anywhere on the boot screen
-  bootScreen.addEventListener('click', skipBootAnimation);
+  // Add click event to allow skipping by clicking anywhere on the boot screen - using inline function
+  bootScreen.onclick = function() {
+    skipBootAnimation();
+    return false; // Prevent event bubbling
+  };
+  
+  // Also add a direct click handler on the document body as a fallback
+  document.body.addEventListener('click', function(e) {
+    if (bootScreen.style.display !== 'none') {
+      skipBootAnimation();
+    }
+  });
+  
+  // Force skip after 10 seconds regardless of other conditions
+  setTimeout(skipBootAnimation, 10000);
 });
 
 // Clock functionality
