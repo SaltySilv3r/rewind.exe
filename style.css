@@ -1050,6 +1050,7 @@
     text-align: center;
     padding: 20px;
     border-bottom: 2px solid #333;
+
     background-color: rgba(0, 0, 0, 0.8);
   }
   
@@ -1295,6 +1296,104 @@
   }
   
   /* ==========================================================================
+     Password Verification Page (YouAlmostDidIt.com)
+     ========================================================================== */
+  
+  .password-verification-content {
+    background-image: url('images/matrix.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .password-verification-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #00ff00;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 40px auto;
+    font-family: 'Courier New', monospace;
+    color: #00ff00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  }
+  
+  .password-verification-page h2 {
+    color: #00ff00;
+    margin-bottom: 20px;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px #00ff00;
+  }
+  
+  .password-verification-page .digit-input {
+    width: 50px;
+    height: 60px;
+    font-size: 32px;
+    text-align: center;
+    margin: 0 5px;
+    border: 2px solid #00ff00;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #00ff00;
+    caret-color: #00ff00;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .password-verification-page .digit-input:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  }
+  
+  .password-verification-page #verify-code-btn {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+  
+  .password-verification-page #verify-code-btn:hover {
+    background-color: rgba(0, 255, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+  }
+  
+  .password-verification-page #verification-message {
+    margin-top: 15px;
+    font-weight: bold;
+    min-height: 20px;
+  }
+  
+  .completion-message {
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .completion-message h2 {
+    color: #00ff00;
+    margin-bottom: 20px;
+  }
+  
+  /* ==========================================================================
      Final Challenge Page
      ========================================================================== */
   
@@ -1381,15 +1480,4 @@
     margin-top: 15px;
     font-weight: bold;
     min-height: 20px;
-  }
-  
-  .completion-message {
-    background-color: transparent;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .completion-message h2 {
-    color: var(--text-light);
   }
