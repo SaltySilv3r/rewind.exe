@@ -17,7 +17,6 @@ const PUSHER_CLUSTER = "eu";
 const PUSHER_AUTH_ENDPOINT = "https://interactionfigure.nl/nhl/blockbusterauth/pusher_auth.php";
 const PUSHER_CHANNEL = "presence-blockbuster";
 
-// Fix for the boot screen video issue
 document.addEventListener('DOMContentLoaded', function () {
   const bootScreen = document.getElementById('boot-screen');
   const bootVideo = document.getElementById('boot-video');
@@ -27,36 +26,16 @@ document.addEventListener('DOMContentLoaded', function () {
   function skipBootAnimation() {
     bootScreen.style.display = 'none';
     desktop.style.display = 'block';
-    
+
     // Pause the video when skipped
     if (bootVideo) {
       bootVideo.pause();
     }
   }
-
-  // Check if bootVideo exists before adding event listener
-  if (bootVideo) {
-    // Skip when video ends naturally
-    bootVideo.addEventListener('ended', skipBootAnimation);
-    
-    // Add a timeout fallback in case the ended event doesn't fire
-    bootVideo.addEventListener('loadedmetadata', function() {
-      // Set timeout based on video duration plus a small buffer
-      setTimeout(skipBootAnimation, (bootVideo.duration * 1000) + 1000);
-    });
-    
-    // If video fails to load or has an error, skip to desktop
-    bootVideo.addEventListener('error', skipBootAnimation);
-  } else {
-    // Fallback in case video doesn't load
-    setTimeout(skipBootAnimation, 3000);
-  }
-
   // Add click event to allow skipping by clicking anywhere on the boot screen
   bootScreen.addEventListener('click', skipBootAnimation);
-  
-  // Additional fallback - force skip after 10 seconds regardless of other conditions
-  setTimeout(skipBootAnimation, 10000);
+
+
 });
 
 // Clock functionality
@@ -357,7 +336,7 @@ backButton.addEventListener("click", function () {
       document.querySelector('#chaos-conspiracy-page').style.display = 'none';
       document.querySelector('#chaos-main-page').style.display = 'block';
       addressBar.value = chaosTheoryForumsURL;
-    } 
+    }
     // Handle special case for Blair Witch investigation page
     else if (currentUrl === huntTheWitchInvestigationURL && previousUrl === huntTheWitchURL) {
       document.querySelector(".blair-witch-content").classList.add("active");
@@ -412,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function () {
       e.target.style.color = '#ffffff';
       e.target.style.fontWeight = 'bold';
     }
-    
+
     // Blair Witch home links
     if (e.target && e.target.classList.contains('blair-home-link')) {
       e.preventDefault();
@@ -425,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
     }
-    
+
     // Blair Witch evidence/investigation links
     if (e.target && e.target.classList.contains('blair-evidence-link')) {
       e.preventDefault();
@@ -438,7 +417,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
     }
-    
+
     // Blair Witch secret links to password verification page
     if (e.target && e.target.classList.contains('blair-secret-text')) {
       if (e.target.href && e.target.href.includes('youalmostdidit.com')) {
